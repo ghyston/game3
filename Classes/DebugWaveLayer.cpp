@@ -18,25 +18,34 @@ DebugWaveLayer::~DebugWaveLayer()
 	
 }
 
-void DebugWaveLayer::init (Vec2 mapSize, Size tileSize, int * values)
+void DebugWaveLayer::init (Vec2 mapSize, Size tileSize)
 {
+	_mapSize = mapSize;
+	
 	float height = mapSize.y * tileSize.height;
 	
 	setContentSize(Size(mapSize.x * tileSize.width, height));
 
-	for(int iX = 0; iX < mapSize.x; iX++)
+	for(int iY = 0; iY < mapSize.y; iY++)
 	{
-		for(int iY = 0; iY < mapSize.y; iY++)
+		for(int iX = 0; iX < mapSize.x; iX++)
 		{
-			int id = iY * mapSize.x + iX;
-			int val = values[id];
-			
-			String * strVal = String::createWithFormat("%i", val);
-			Label * lbl = Label::Label::createWithTTF(strVal->getCString(), "fonts/Marker Felt.ttf", 16);
+			Label * lbl = Label::Label::createWithTTF("x", "fonts/Marker Felt.ttf", 16);
 			lbl->setColor(Color3B(255, 0, 0));
 			lbl->setPosition((iX + 0.5) * tileSize.width, height - (iY + 0.5) * tileSize.height);
 			addChild(lbl);
+			_labels.pushBack(lbl);
 		}
 	}
 	
+}
+
+void DebugWaveLayer::updateValues(const int * values)
+{
+	int cellsCount = _mapSize.x * _mapSize.y;
+	
+	for(int i = 0; i < cellsCount; i++)
+	{
+		_labels.at(i)->setString(String::createWithFormat("%i", values[i])->getCString());
+	}
 }

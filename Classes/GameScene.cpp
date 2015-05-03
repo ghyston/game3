@@ -39,7 +39,7 @@ bool GameScene::init()
 	EventDispatcher * ed = d->getEventDispatcher();
 	ed->addCustomEventListener("NEW_TOWER_SPRITE", CC_CALLBACK_1(GameScene::onNewShip, this));
 	ed->addCustomEventListener("MAP_LOADED", CC_CALLBACK_1(GameScene::onMapLoaded, this));
-	ed->addCustomEventListener("DEBUG_MAP_LOADED", CC_CALLBACK_1(GameScene::onDebugMapLoaded, this));
+	ed->addCustomEventListener("DEBUG_MAP_UPDATED", CC_CALLBACK_1(GameScene::onDebugMapUpdated, this));
 	
 	_battle.init(0, 0);
 	
@@ -66,7 +66,12 @@ void GameScene::onTouchEnded(cocos2d::Touch* t, cocos2d::Event* e)
 {
 	_touched = false;
 	Vec2 loc = t->getLocation();
-	_battle.startShipMoving(loc);
+	//_battle.startShipMoving(loc);
+	
+	Vec2 startLoc = t->getStartLocation();
+	
+	if((abs(startLoc.x - loc.x) < 10) && (abs(startLoc.y - loc.y) < 10))
+	   _battle.updateGoal(loc - getTiledMap()->getPosition());
 }
 
 void GameScene::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event*)
@@ -89,11 +94,14 @@ void GameScene::onTouchCancelled(cocos2d::Touch*, cocos2d::Event*)
 
 void GameScene::onNewShip(EventCustom * event)
 {
+	if(getTiledMap() == NULL)
+		return;
+	
 	Sprite * ship = (Sprite*)(event->getUserData());
 	if(ship == NULL)
 		return;
 	
-	addChild(ship);
+	getTiledMap()->addChild(ship);
 }
 
 void GameScene::onMapLoaded(EventCustom * event)
@@ -104,17 +112,35 @@ void GameScene::onMapLoaded(EventCustom * event)
 	
 	setTiledMap(tiledMap);
 	addChild(tiledMap);
+	
+	DebugWaveLayer * dwl = DebugWaveLayer::create(tiledMap->getMapSize(),
+												  tiledMap->getTileSize());
+	setDebugLayer(dwl);
+	getTiledMap()->addChild(dwl);
 }
 
-void GameScene::onDebugMapLoaded(EventCustom * event)
+void GameScene::onDebugMapUpdated(EventCustom * event)
 {
-	DebugWaveLayer * dwl = (DebugWaveLayer *)(event->getUserData());
+	if(getDebugLayer() == NULL)
+		return;
+	
+	int * values = (int *)(event->getUserData());
+	getDebugLayer()->updateValues(values);
+	
+	
+	/*DebugWaveLayer * dwl = (DebugWaveLayer *)(event->getUserData());
 	if(dwl == NULL)
 		return;
 	
-	getTiledMap()->
+	if(getDebugLayer() != NULL)
+	{
+		getTiledMap()->removeChild(getDebugLayer());
+		setDebugLayer(NULL);
+	}
 	
-	addChild(dwl);
+	setDebugLayer(dwl);
+	
+	getTiledMap()->addChild(dwl);*/
 }
 
 void GameScene::update(float delta)

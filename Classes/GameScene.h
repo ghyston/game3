@@ -28,7 +28,7 @@ public:
 	
 	void onNewShip(EventCustom * event);
 	void onMapLoaded(EventCustom * event);
-	void onDebugMapLoaded(EventCustom * event);
+	void onDebugMapUpdated(EventCustom * event);
 	
 	virtual bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
 	virtual void onTouchEnded(cocos2d::Touch*, cocos2d::Event*);
@@ -45,7 +45,7 @@ private:
 	bool _touched;
 	
 	CC_SYNTHESIZE_RETAIN(TMXTiledMap *, _tiledMap, TiledMap);
-	CC_SYNTHESIZE_RETAIN(Layer *, _debugLayer, DebugLayer);
+	CC_SYNTHESIZE_RETAIN(DebugWaveLayer *, _debugLayer, DebugLayer);
 	
 	
 };

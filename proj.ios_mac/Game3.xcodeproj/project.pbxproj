@@ -30,6 +30,8 @@
 		3F59F6941AF62D39009AD13F /* second.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3F59F6901AF62D39009AD13F /* second.tmx */; };
 		3F59F6971AF64AFF009AD13F /* DebugWaveLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F59F6951AF64AFF009AD13F /* DebugWaveLayer.cpp */; };
 		3F59F6981AF64AFF009AD13F /* DebugWaveLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F59F6951AF64AFF009AD13F /* DebugWaveLayer.cpp */; };
+		3F59F69A1AF68428009AD13F /* energy_sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F59F6991AF68428009AD13F /* energy_sprite.png */; };
+		3F59F69B1AF68428009AD13F /* energy_sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F59F6991AF68428009AD13F /* energy_sprite.png */; };
 		3FAC2E261AD7209900A729AA /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FAC2E241AD7209900A729AA /* GameScene.cpp */; };
 		3FAC2E271AD7209900A729AA /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FAC2E241AD7209900A729AA /* GameScene.cpp */; };
 		3FE45BCD1ADC5BB30096C53C /* MoveSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FE45BCB1ADC5BB30096C53C /* MoveSystem.cpp */; };
@@ -142,6 +144,7 @@
 		3F59F6901AF62D39009AD13F /* second.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = second.tmx; sourceTree = "<group>"; };
 		3F59F6951AF64AFF009AD13F /* DebugWaveLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DebugWaveLayer.cpp; sourceTree = "<group>"; };
 		3F59F6961AF64AFF009AD13F /* DebugWaveLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugWaveLayer.h; sourceTree = "<group>"; };
+		3F59F6991AF68428009AD13F /* energy_sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = energy_sprite.png; sourceTree = "<group>"; };
 		3FAC2E241AD7209900A729AA /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		3FAC2E251AD7209900A729AA /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		3FE45BC21ADC52500096C53C /* PositionComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionComponent.h; sourceTree = "<group>"; };
@@ -363,6 +366,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3F59F6991AF68428009AD13F /* energy_sprite.png */,
 				3F59F68F1AF62D39009AD13F /* mapTileset.png */,
 				3F59F6901AF62D39009AD13F /* second.tmx */,
 				3F59F6061AE99530009AD13F /* ship_s.png */,
@@ -545,6 +549,7 @@
 				3F59F6911AF62D39009AD13F /* mapTileset.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
+				3F59F69A1AF68428009AD13F /* energy_sprite.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				3F59F6071AE99530009AD13F /* ship_s.png in Resources */,
@@ -579,6 +584,7 @@
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
 				3EACC99019EE6D4300EB3C5E /* res in Resources */,
 				3F59F6081AE99530009AD13F /* ship_s.png in Resources */,
+				3F59F69B1AF68428009AD13F /* energy_sprite.png in Resources */,
 				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
 				3F59F6921AF62D39009AD13F /* mapTileset.png in Resources */,
 				46880B7C19C43A67006E1F66 /* CloseNormal.png in Resources */,

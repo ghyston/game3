@@ -71,3 +71,31 @@ int EntityFabric::createShip(World& world)
 	
 	return ship.getId();
 }
+
+int EntityFabric::createParticle(World& world)
+{
+	EntityManager * em = world.getEntityManager();
+	Entity & particle = em->create();
+	
+	MovementComponent * movCmp = new MovementComponent();
+	PositionComponent * posCmp = new PositionComponent();
+	RenderComponent * renderCmp = new RenderComponent();
+	
+	Sprite * sprite = Sprite::create("energy_sprite.png");
+	renderCmp->_sprite = sprite;
+	
+	posCmp->_pos = Vec2(300, 300);
+	
+	EventCustom * event = new EventCustom("NEW_TOWER_SPRITE");
+	event->autorelease();
+	event->setUserData(sprite);
+	
+	cocos2d::Director::getInstance()->getEventDispatcher()->dispatchEvent(event);
+	
+	particle.addComponent(movCmp);
+	particle.addComponent(renderCmp);
+	particle.addComponent(posCmp);
+	particle.refresh();
+	
+	return particle.getId();
+}

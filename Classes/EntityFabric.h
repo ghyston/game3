@@ -18,6 +18,7 @@ public:
 	
 	static void createTower(World& world);
 	static int createShip(World& world);
+	static int createParticle(World& world);
 	
 private:
 	

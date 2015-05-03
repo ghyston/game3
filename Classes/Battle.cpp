@@ -38,7 +38,8 @@ bool Battle::init(int mapCellsX, int mapCellsY)
 {
 	// init ECS
 	SystemManager * sysManager =  _world.getSystemManager();
-	sysManager->setSystem(new MoveSystem());
+	MoveSystem * ms = new MoveSystem();
+	sysManager->setSystem(ms);
 	sysManager->setSystem(new BezierMoveSystem());
 	sysManager->initializeAll();
 	
@@ -50,8 +51,8 @@ bool Battle::init(int mapCellsX, int mapCellsY)
 	_mapSizeY = _tiledMap->getMapSize().height;
 	_isCollidable = new int[_mapSizeX * _mapSizeY];
 	_heatmap = new int[_mapSizeX * _mapSizeY];
+	_vecMap = new Vec2[_mapSizeX * _mapSizeY];
 	
-	memset(_heatmap, 0, (size_t)(_mapSizeX * _mapSizeY * sizeof(int)));
 	memset(_isCollidable, 0, (size_t)(_mapSizeX * _mapSizeY * sizeof(int)));
 	
 	TMXLayer * layer1 = _tiledMap->getLayer("Layer1");
@@ -72,29 +73,22 @@ bool Battle::init(int mapCellsX, int mapCellsY)
 			
 			_isCollidable[isCollidableID] = (valMap["collidable"].asString().compare("0")) ? 1 : 0;
 			//log("x: %i y: %i isCollideble: %s", iX, iY, _isCollidable[isCollidableID] ? "True" : "False");
-			_heatmap[isCollidableID] = -1;
 		}
 	}
 	
-	recalculateMapVectors(Vec2(30, 30));
 	
 	EventCustom * event = new EventCustom("MAP_LOADED");
 	event->autorelease();
 	event->setUserData(_tiledMap);
 	cocos2d::Director::getInstance()->getEventDispatcher()->dispatchEvent(event);
 	
-	DebugWaveLayer * dwl = DebugWaveLayer::create(
-												  Vec2(_mapSizeX, _mapSizeY),
-												  _tiledMap->getTileSize(),
-												  _heatmap);
-	
-	EventCustom * testEvent = new EventCustom("DEBUG_MAP_LOADED");
-	testEvent->autorelease();
-	testEvent->setUserData(dwl);
-	cocos2d::Director::getInstance()->getEventDispatcher()->dispatchEvent(testEvent);
-	
 	//add tower for test
 	//_touchedShipId = EntityFabric::createShip(_world);
+	EntityFabric::createParticle(_world);
+	
+	 //@todo: very dirty hack!
+	ms->mapSize = Vec2(_mapSizeX, _mapSizeY);
+	ms->tileSize = Vec2(_tiledMap->getTileSize().width, _tiledMap->getTileSize().height);
 	
 	return true;
 }
@@ -106,11 +100,15 @@ int Battle::getIdByCoords(Vec2 coords)
 
 void Battle::recalculateMapVectors(Vec2 goal)
 {
+	memset(_heatmap, -1, (size_t)(_mapSizeX * _mapSizeY * sizeof(int)));
+	memset(_vecMap, 0, (size_t)(_mapSizeX * _mapSizeY * sizeof(Vec2)));
+	
 	int goalCellId = getIdByCoords(goal);
 	
 	if(_isCollidable[goalCellId] == 1)
 		return;
 	
+	// recalculate heat values
 	int currentValue = 0;
 	bool canWaveBeIncreased = true;
 	_heatmap[goalCellId] = currentValue;
@@ -137,6 +135,44 @@ void Battle::recalculateMapVectors(Vec2 goal)
 		
 		canWaveBeIncreased &= isCalculated;
 		currentValue++;
+	}
+	
+	// Upd debug layer
+	EventCustom * testEvent = new EventCustom("DEBUG_MAP_UPDATED");
+	testEvent->autorelease();
+	testEvent->setUserData(_heatmap);
+	cocos2d::Director::getInstance()->getEventDispatcher()->dispatchEvent(testEvent);
+	
+	int xL, xR, yT, yB; // x: Left, Right; y: Top, Bottom
+	
+	// fill out vector map
+	for(int iX = 0; iX < _mapSizeX; iX++)
+	{
+		for(int iY = 0; iY < _mapSizeY; iY++)
+		{
+			xL = (iX == 0) ? iX : (iX - 1);
+			xR = (iX == _mapSizeX - 1) ? iX : iX + 1;
+			yT = (iY == _mapSizeY - 1) ? iY : iY + 1;
+			yB = (iY == 0) ? iY : (iY - 1);
+		
+			int id = getIdByCoords(Vec2(iX, iY));
+			int idL = getIdByCoords(Vec2(xL, iY));
+			int idR = getIdByCoords(Vec2(xR, iY));
+			int idT = getIdByCoords(Vec2(iX, yT));
+			int idB = getIdByCoords(Vec2(iX, yB));
+			
+			if(_isCollidable[idL] == 1) idL = id;
+			if(_isCollidable[idR] == 1) idR = id;
+			if(_isCollidable[idT] == 1) idT = id;
+			if(_isCollidable[idB] == 1) idB = id;
+			
+			_vecMap[id].x = _heatmap[idL] - _heatmap[idR];
+			_vecMap[id].y = _heatmap[idT] - _heatmap[idB];
+			
+			_vecMap[id].normalize();
+			float length = _vecMap[id].length();
+			_vecMap[id] *= 1000;
+		}
 	}
 }
 
@@ -171,10 +207,25 @@ void Battle::update(float delta)
 	SystemManager * sysManager =  _world.getSystemManager();
 	
 	MoveSystem* ms = (MoveSystem*)sysManager->getSystem<MoveSystem>();
+	ms->vecMap = _vecMap;
 	ms->process();
 	
 	BezierMoveSystem* bms = (BezierMoveSystem*)sysManager->getSystem<BezierMoveSystem>();
 	bms->process();
+}
+
+void Battle::updateGoal(Vec2 coords)
+{
+	//@todo: check!!!
+	Vec2 goalPos = getTileCoordsForPosition(coords);
+	recalculateMapVectors(goalPos);
+}
+
+Vec2 Battle::getTileCoordsForPosition(Vec2 pos)
+{
+	int x = pos.x / _tiledMap->getTileSize().width;
+	int y = ((_tiledMap->getMapSize().height * _tiledMap->getTileSize().height) - pos.y) / _tiledMap->getTileSize().height;
+	return Vec2(x, y);
 }
 
 void Battle::startShipMoving(Vec2 newCoords)

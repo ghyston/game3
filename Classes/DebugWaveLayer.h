@@ -19,19 +19,25 @@ public:
 	
 	~DebugWaveLayer();
 	
-	static DebugWaveLayer * create(Vec2 mapSize, Size tileSize, int * values)
+	static DebugWaveLayer * create(Vec2 mapSize, Size tileSize)
 	{
 		DebugWaveLayer * instance = new DebugWaveLayer();
-		instance->init(mapSize, tileSize, values);
+		instance->init(mapSize, tileSize);
 		instance->autorelease();
 		return instance;
 	}
 	
+	void updateValues(const int * values);
+	
 private:
 	
-	void init (Vec2 mapSize, Size tileSize, int * values);
+	void init (Vec2 mapSize, Size tileSize);
 	
 	DebugWaveLayer();
+	
+	Vec2 _mapSize;
+	
+	Vector<Label*> _labels;
 	
 };
 

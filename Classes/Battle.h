@@ -29,6 +29,7 @@ public:
 	void update(float delta);
 	
 	void startShipMoving(Vec2 newCoords);
+	void updateGoal(Vec2 coords);
 	
 private:
 	
@@ -42,10 +43,12 @@ private:
 	int _mapSizeY;
 	int * _isCollidable;
 	int * _heatmap;
+	Vec2 * _vecMap;
 	
 	void recalculateMapVectors(Vec2 goal);
 	bool calculteHeatMapAtCell(Vec2 cell, int value);
 	int getIdByCoords(Vec2 coords);
+	Vec2 getTileCoordsForPosition(Vec2 pos);
 	
 };
 

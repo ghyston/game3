@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/MoveSystem.cpp"
-            timestampString = "451134814.268069"
+            timestampString = "452364366.564144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "MoveSystem::processEntity(artemis::Entity &amp;e)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Battle.cpp"
-            timestampString = "452353771.528548"
+            timestampString = "452365432.166039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "204"
+            endingLineNumber = "204"
             landmarkName = "Battle::update(float delta)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "452354269.436214"
+            timestampString = "452363535.903885"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "GameScene::onNewShip(EventCustom * event)"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/MoveSystem.cpp"
-            timestampString = "451134814.268069"
+            timestampString = "452364366.564144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "MoveSystem::processEntity(artemis::Entity &amp;e)"
             landmarkType = "5">
          </BreakpointContent>
@@ -168,11 +168,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "452354269.436214"
+            timestampString = "452357504.750846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "GameScene::onTouchEnded(cocos2d::Touch* t, cocos2d::Event* e)"
             landmarkType = "5">
          </BreakpointContent>
@@ -200,11 +200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Battle.cpp"
-            timestampString = "452353771.528548"
+            timestampString = "452365432.166039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
             landmarkName = "Battle::startShipMoving(Vec2 newCoords)"
             landmarkType = "5">
          </BreakpointContent>
@@ -216,11 +216,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Battle.cpp"
-            timestampString = "452350759.780608"
+            timestampString = "452364366.564144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "Battle::init(int mapCellsX, int mapCellsY)"
             landmarkType = "5">
          </BreakpointContent>
@@ -232,11 +232,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Battle.cpp"
-            timestampString = "452349759.031661"
+            timestampString = "452364366.564144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "Battle::init(int mapCellsX, int mapCellsY)"
             landmarkType = "5">
          </BreakpointContent>
@@ -248,11 +248,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Battle.cpp"
-            timestampString = "452353344.207395"
+            timestampString = "452364366.564144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
             landmarkName = "Battle::recalculateMapVectors(Vec2 goal)"
             landmarkType = "5">
          </BreakpointContent>
@@ -264,11 +264,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Battle.cpp"
-            timestampString = "452353771.528548"
+            timestampString = "452365432.166039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "Battle::calculteHeatMapAtCell(Vec2 cell, int value)"
             landmarkType = "5">
          </BreakpointContent>
@@ -280,11 +280,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Battle.cpp"
-            timestampString = "452353771.528548"
+            timestampString = "452365432.166039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "Battle::calculteHeatMapAtCell(Vec2 cell, int value)"
             landmarkType = "5">
          </BreakpointContent>
@@ -296,11 +296,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Battle.cpp"
-            timestampString = "452353771.528548"
+            timestampString = "452365432.166039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
             landmarkName = "Battle::calculteHeatMapAtCell(Vec2 cell, int value)"
             landmarkType = "5">
          </BreakpointContent>
@@ -312,11 +312,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Battle.cpp"
-            timestampString = "452353344.207395"
+            timestampString = "452364366.564144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "Battle::recalculateMapVectors(Vec2 goal)"
             landmarkType = "5">
          </BreakpointContent>
@@ -328,11 +328,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Battle.cpp"
-            timestampString = "452353375.498447"
+            timestampString = "452364366.564144"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "Battle::recalculateMapVectors(Vec2 goal)"
             landmarkType = "5">
          </BreakpointContent>
@@ -344,11 +344,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Battle.cpp"
-            timestampString = "452353771.528548"
+            timestampString = "452365432.166039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "Battle::calculteHeatMapAtCell(Vec2 cell, int value)"
             landmarkType = "5">
          </BreakpointContent>
@@ -360,12 +360,76 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/Battle.cpp"
-            timestampString = "452353771.528548"
+            timestampString = "452365432.166039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "Battle::calculteHeatMapAtCell(Vec2 cell, int value)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Battle.cpp"
+            timestampString = "452364466.654621"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "Battle::init(int mapCellsX, int mapCellsY)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/MoveSystem.cpp"
+            timestampString = "452364470.615381"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "MoveSystem::processEntity(artemis::Entity &amp;e)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/MoveSystem.cpp"
+            timestampString = "452364471.056215"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "MoveSystem::processEntity(artemis::Entity &amp;e)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/Battle.cpp"
+            timestampString = "452365432.166039"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
+            landmarkName = "Battle::recalculateMapVectors(Vec2 goal)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

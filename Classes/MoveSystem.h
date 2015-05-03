@@ -16,6 +16,8 @@
 #include "MovementComponent.h"
 #include "RenderComponent.h"
 
+using namespace cocos2d;
+
 class MoveSystem : public artemis::EntityProcessingSystem
 {
 public:
@@ -27,10 +29,18 @@ public:
 	
 	virtual void processEntity(artemis::Entity &e);
 	
+	//@todo: should be just link to map (or similar interface)!
+	Vec2 * vecMap;
+	Vec2 mapSize;
+	Vec2 tileSize;
+	
 private:
 	
 	artemis::ComponentMapper<MovementComponent> movementMapper;
 	artemis::ComponentMapper<PositionComponent> positionMapper;
+	
+	int getIdByCoords(Vec2 coords);
+	Vec2 getTileCoordsForPosition(Vec2 pos);
 	
 };
 
