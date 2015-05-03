@@ -12,6 +12,7 @@
 #include "cocos2d.h"
 
 #include "Battle.h"
+#include "DebugWaveLayer.h"
 
 using namespace cocos2d;
 
@@ -21,9 +22,13 @@ public:
 	
 	CREATE_FUNC(GameScene);
 	
+	~GameScene();
+	
 	virtual void update(float delta);
 	
 	void onNewShip(EventCustom * event);
+	void onMapLoaded(EventCustom * event);
+	void onDebugMapLoaded(EventCustom * event);
 	
 	virtual bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
 	virtual void onTouchEnded(cocos2d::Touch*, cocos2d::Event*);
@@ -32,9 +37,17 @@ public:
 	
 private:
 	
+	GameScene();
+	
 	bool init();
 	
 	Battle _battle;
+	bool _touched;
+	
+	CC_SYNTHESIZE_RETAIN(TMXTiledMap *, _tiledMap, TiledMap);
+	CC_SYNTHESIZE_RETAIN(Layer *, _debugLayer, DebugLayer);
+	
+	
 };
 
 #endif /* defined(__Game3__GameScene__) */

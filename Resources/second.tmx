@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="mapTileset" tilewidth="32" tileheight="32">
+  <image source="mapTileset.png" width="128" height="128"/>
+  <tile id="0">
+   <properties>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="collidable" value="0"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Layer1" width="50" height="50">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+2YWw+DIAyF0bnLi/7/n7uZQUIabkJ7oIaHk+kWtV97oHWHMeaYmppq1uOn3erqtbunrTNHLQPlaLkPF0drDkbhqPUEZViF40zlyf+dxpXjW0AMVzhi6uWTyTE2Rykncs0iORC9javefi9H+4vrvqi4aa420zYLUS1GngFZZ8rD5eFSz3L7NZVTifglap/zBLeXJPb2UKwSNQ+tRwnvIHybW4vcHBIM9FkS8wJy/5CcedweI82AyFGIg7Pv9pJj0Db3aq5DbA7RVgf/HYPOE71jK1VqDtJSizswOD9JxI/OA51z6LPf9vNVwYHm81n875/m77vzeLPnHByoGnFoJI6PrdV5vNrzkutSM1qvetSsj1Tf0eSr3KzZO75WDm3zwV043D6uneNqnbRpcoyl2LrRLm39JMUw+jsO+r9pLfoCJBZq2RAnAAA=
+  </data>
+ </layer>
+</map>

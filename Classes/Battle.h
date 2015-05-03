@@ -36,6 +36,17 @@ private:
 	
 	int _touchedShipId;
 	
+	//@todo: move it to separate class!
+	TMXTiledMap * _tiledMap;
+	int _mapSizeX;
+	int _mapSizeY;
+	int * _isCollidable;
+	int * _heatmap;
+	
+	void recalculateMapVectors(Vec2 goal);
+	bool calculteHeatMapAtCell(Vec2 cell, int value);
+	int getIdByCoords(Vec2 coords);
+	
 };
 
 #endif /* defined(__Game3__Battle__) */
