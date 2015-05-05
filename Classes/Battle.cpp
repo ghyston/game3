@@ -49,15 +49,17 @@ bool Battle::init(int mapCellsX, int mapCellsY)
 	
 	_mapSizeX = _tiledMap->getMapSize().width;
 	_mapSizeY = _tiledMap->getMapSize().height;
-	_isCollidable = new int[_mapSizeX * _mapSizeY];
-	_heatmap = new int[_mapSizeX * _mapSizeY];
-	_vecMap = new Vec2[_mapSizeX * _mapSizeY];
+	_isCollidable		= new int[_mapSizeX * _mapSizeY];
+	_heatmap			= new int[_mapSizeX * _mapSizeY];
+	_vecMap				= new Vec2[_mapSizeX * _mapSizeY];
+	_collisionVecMap	= new Vec2[_mapSizeX * _mapSizeY];
 	
 	memset(_isCollidable, 0, (size_t)(_mapSizeX * _mapSizeY * sizeof(int)));
+	memset(_collisionVecMap, 0, (size_t)(_mapSizeX * _mapSizeY * sizeof(Vec2)));
 	
 	TMXLayer * layer1 = _tiledMap->getLayer("Layer1");
 	
-	// fill out _isCollidable array
+	// calculate collisions
 	for(int iX = 0; iX < _mapSizeX; iX++)
 	{
 		for(int iY = 0; iY < _mapSizeY; iY++)
@@ -76,6 +78,86 @@ bool Battle::init(int mapCellsX, int mapCellsY)
 		}
 	}
 	
+	// fill out _isCollidable array
+	for(int iX = 0; iX < _mapSizeX; iX++)
+	{
+		for(int iY = 0; iY < _mapSizeY; iY++)
+		{
+			int id = getIdByCoords(Vec2(iX, iY));
+			
+			if(_isCollidable[id] == 0)
+			{
+				_collisionVecMap[id] = Vec2(0, 0);
+				continue;
+			}
+			
+			
+			int resultX = 0;
+			int resultY = 0;
+			
+			bool leftBlocked = (iX == 0);
+			bool rightBlocked = (iX == (_mapSizeX - 1));
+			bool topBlocked = (iY == (_mapSizeY - 1));
+			bool bottomBlocked = (iY == 0);
+			
+			// For all blocked cells on border calculate push force (by unblocked neighbors)
+			
+			// left
+			if(!leftBlocked && (_isCollidable[getIdByCoords(Vec2(iX - 1, iY))] == 0))
+			{
+				resultX--;
+			}
+			
+			// left top
+			if(!leftBlocked && !topBlocked && (_isCollidable[getIdByCoords(Vec2(iX - 1, iY + 1))] == 0))
+			{
+				resultX--;
+				resultY--;
+			}
+			
+			// top
+			if(!topBlocked && (_isCollidable[getIdByCoords(Vec2(iX, iY + 1))] == 0))
+			{
+				resultY--;
+			}
+			
+			// top right
+			if(!topBlocked && !rightBlocked && (_isCollidable[getIdByCoords(Vec2(iX + 1, iY + 1))] == 0))
+			{
+				resultY--;
+				resultX++;
+			}
+			
+			// right
+			if(!rightBlocked && (_isCollidable[getIdByCoords(Vec2(iX + 1, iY))] == 0))
+			{
+				resultX++;
+			}
+			
+			// right bottom
+			if(!rightBlocked && !bottomBlocked && (_isCollidable[getIdByCoords(Vec2(iX + 1, iY - 1))] == 0))
+			{
+				resultX++;
+				resultY++;
+			}
+			
+			// bottom
+			if(!bottomBlocked && (_isCollidable[getIdByCoords(Vec2(iX, iY - 1))] == 0))
+			{
+				resultY++;
+			}
+			
+			// bottom left
+			if(!leftBlocked && !bottomBlocked && (_isCollidable[getIdByCoords(Vec2(iX - 1, iY - 1))] == 0))
+			{
+				resultX--;
+				resultY++;
+			}
+			
+			_collisionVecMap[id] = Vec2(resultX, resultY);
+			_collisionVecMap[id].normalize();
+		}
+	}
 	
 	EventCustom * event = new EventCustom("MAP_LOADED");
 	event->autorelease();
@@ -89,6 +171,10 @@ bool Battle::init(int mapCellsX, int mapCellsY)
 	 //@todo: very dirty hack!
 	ms->mapSize = Vec2(_mapSizeX, _mapSizeY);
 	ms->tileSize = Vec2(_tiledMap->getTileSize().width, _tiledMap->getTileSize().height);
+	ms->collisionsVecMap = _collisionVecMap;
+	
+	
+	recalculateMapVectors(Vec2(20, 20));
 	
 	return true;
 }
@@ -166,14 +252,28 @@ void Battle::recalculateMapVectors(Vec2 goal)
 			if(_isCollidable[idT] == 1) idT = id;
 			if(_isCollidable[idB] == 1) idB = id;
 			
-			_vecMap[id].x = _heatmap[idL] - _heatmap[idR];
-			_vecMap[id].y = _heatmap[idT] - _heatmap[idB];
+			if(_isCollidable[id] == 1)
+			{
+				_vecMap[id].x = 0;
+				_vecMap[id].y = 0;
+			}
+			else
+			{
+				_vecMap[id].x = _heatmap[idL] - _heatmap[idR];
+				_vecMap[id].y = _heatmap[idT] - _heatmap[idB];
+			}
 			
 			_vecMap[id].normalize();
-			float length = _vecMap[id].length();
-			_vecMap[id] *= 1000;
+			//float length = _vecMap[id].length();
+			//_vecMap[id] *= 100;
 		}
 	}
+	
+	// Upd debug layer
+	EventCustom * testEvent2 = new EventCustom("DEBUG_VEC_MAP_UPDATED");
+	testEvent2->autorelease();
+	testEvent2->setUserData(_collisionVecMap);
+	cocos2d::Director::getInstance()->getEventDispatcher()->dispatchEvent(testEvent2);
 }
 
 bool Battle::calculteHeatMapAtCell(Vec2 cell, int value)

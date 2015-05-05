@@ -13,6 +13,7 @@
 
 #include "Battle.h"
 #include "DebugWaveLayer.h"
+#include "DebugVecLayer.h"
 
 using namespace cocos2d;
 
@@ -29,6 +30,7 @@ public:
 	void onNewShip(EventCustom * event);
 	void onMapLoaded(EventCustom * event);
 	void onDebugMapUpdated(EventCustom * event);
+	void onDebugVecMapUpdated(EventCustom * event);
 	
 	virtual bool onTouchBegan(cocos2d::Touch*, cocos2d::Event*);
 	virtual void onTouchEnded(cocos2d::Touch*, cocos2d::Event*);
@@ -46,6 +48,7 @@ private:
 	
 	CC_SYNTHESIZE_RETAIN(TMXTiledMap *, _tiledMap, TiledMap);
 	CC_SYNTHESIZE_RETAIN(DebugWaveLayer *, _debugLayer, DebugLayer);
+	CC_SYNTHESIZE_RETAIN(DebugVecLayer *, _debugVecLayer, DebugVecLayer);
 	
 	
 };

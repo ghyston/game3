@@ -35,10 +35,33 @@ void MoveSystem::processEntity(artemis::Entity &e)
 	// update speed by potential map
 	Vec2 tileCoords = getTileCoordsForPosition(posCmpt->_pos);
 	int tileID = getIdByCoords(tileCoords);
-	Vec2 tileVelocity = vecMap[tileID];
 	
-	movCmp->_speed.x = 10 * tileVelocity.x * world->getDelta();
-	movCmp->_speed.y = 10 * tileVelocity.y * world->getDelta();
+	
+	Vec2 tileVelocity = 100 * vecMap[tileID];
+	Vec2 collisionVelocity = 100 * collisionsVecMap[tileID];
+	
+	Vec2 steering = tileVelocity + collisionVelocity;
+	float steerLength = steering.length();
+	
+	const float MAX_FORCE = 50.0f;
+	if(steerLength >= MAX_FORCE)
+	{
+		steering.scale(MAX_FORCE / steerLength);
+	}
+	
+	
+	movCmp->_speed = movCmp->_speed + steering;
+	float speed = movCmp->_speed.length();
+	const float MAX_SPEED = 150.0f;
+	if(speed >= MAX_SPEED)
+	{
+		movCmp->_speed.scale(MAX_SPEED / speed);
+	}
+	
+	//movCmp->_speed.x += tileVelocity.x * world->getDelta();
+	//movCmp->_speed.y += tileVelocity.y * world->getDelta();
+	//movCmp->_speed.normalize();
+	//movCmp->_speed *= 100;
 	
 	// update position
 	posCmpt->_pos.x += movCmp->_speed.x * world->getDelta();

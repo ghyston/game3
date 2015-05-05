@@ -31,6 +31,7 @@ public:
 	
 	//@todo: should be just link to map (or similar interface)!
 	Vec2 * vecMap;
+	Vec2 * collisionsVecMap;
 	Vec2 mapSize;
 	Vec2 tileSize;
 	

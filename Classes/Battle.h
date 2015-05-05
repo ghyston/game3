@@ -44,6 +44,7 @@ private:
 	int * _isCollidable;
 	int * _heatmap;
 	Vec2 * _vecMap;
+	Vec2 * _collisionVecMap;
 	
 	void recalculateMapVectors(Vec2 goal);
 	bool calculteHeatMapAtCell(Vec2 cell, int value);

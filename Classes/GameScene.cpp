@@ -14,12 +14,14 @@ GameScene::GameScene()
 {
 	_tiledMap = NULL;
 	_debugLayer = NULL;
+	_debugVecLayer = NULL;
 }
 
 GameScene::~GameScene()
 {
 	setTiledMap(NULL);
 	setDebugLayer(NULL);
+	setDebugVecLayer(NULL);
 }
 
 bool GameScene::init()
@@ -40,6 +42,7 @@ bool GameScene::init()
 	ed->addCustomEventListener("NEW_TOWER_SPRITE", CC_CALLBACK_1(GameScene::onNewShip, this));
 	ed->addCustomEventListener("MAP_LOADED", CC_CALLBACK_1(GameScene::onMapLoaded, this));
 	ed->addCustomEventListener("DEBUG_MAP_UPDATED", CC_CALLBACK_1(GameScene::onDebugMapUpdated, this));
+	ed->addCustomEventListener("DEBUG_VEC_MAP_UPDATED", CC_CALLBACK_1(GameScene::onDebugVecMapUpdated, this));
 	
 	_battle.init(0, 0);
 	
@@ -117,6 +120,12 @@ void GameScene::onMapLoaded(EventCustom * event)
 												  tiledMap->getTileSize());
 	setDebugLayer(dwl);
 	getTiledMap()->addChild(dwl);
+	
+	
+	DebugVecLayer * dvl = DebugVecLayer::create(tiledMap->getMapSize(),
+												tiledMap->getTileSize());
+	setDebugVecLayer(dvl);
+	getTiledMap()->addChild(dvl);
 }
 
 void GameScene::onDebugMapUpdated(EventCustom * event)
@@ -126,21 +135,15 @@ void GameScene::onDebugMapUpdated(EventCustom * event)
 	
 	int * values = (int *)(event->getUserData());
 	getDebugLayer()->updateValues(values);
-	
-	
-	/*DebugWaveLayer * dwl = (DebugWaveLayer *)(event->getUserData());
-	if(dwl == NULL)
+}
+
+void GameScene::onDebugVecMapUpdated(EventCustom * event)
+{
+	if(getDebugLayer() == NULL)
 		return;
 	
-	if(getDebugLayer() != NULL)
-	{
-		getTiledMap()->removeChild(getDebugLayer());
-		setDebugLayer(NULL);
-	}
-	
-	setDebugLayer(dwl);
-	
-	getTiledMap()->addChild(dwl);*/
+	Vec2 * values = (Vec2 *)(event->getUserData());
+	getDebugVecLayer()->updateValues(values);
 }
 
 void GameScene::update(float delta)
