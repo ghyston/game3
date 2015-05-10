@@ -14,6 +14,7 @@
 #include "Battle.h"
 #include "DebugWaveLayer.h"
 #include "DebugVecLayer.h"
+#include "ArraySprite.h"
 
 using namespace cocos2d;
 
@@ -49,7 +50,12 @@ private:
 	CC_SYNTHESIZE_RETAIN(TMXTiledMap *, _tiledMap, TiledMap);
 	CC_SYNTHESIZE_RETAIN(DebugWaveLayer *, _debugLayer, DebugLayer);
 	CC_SYNTHESIZE_RETAIN(DebugVecLayer *, _debugVecLayer, DebugVecLayer);
+	CC_SYNTHESIZE_RETAIN(ArraySprite *, _arraySprite, ArraySprite);
 	
+	//@todo: jft, remove!
+	GLbyte * _tempSpriteData;
+	void genRandomTexture();
+	uint _assResolution;
 	
 };
 

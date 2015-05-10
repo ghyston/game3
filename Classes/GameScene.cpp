@@ -15,6 +15,7 @@ GameScene::GameScene()
 	_tiledMap = NULL;
 	_debugLayer = NULL;
 	_debugVecLayer = NULL;
+	_arraySprite = NULL;
 }
 
 GameScene::~GameScene()
@@ -22,6 +23,7 @@ GameScene::~GameScene()
 	setTiledMap(NULL);
 	setDebugLayer(NULL);
 	setDebugVecLayer(NULL);
+	setArraySprite(NULL);
 }
 
 bool GameScene::init()
@@ -119,13 +121,48 @@ void GameScene::onMapLoaded(EventCustom * event)
 	DebugWaveLayer * dwl = DebugWaveLayer::create(tiledMap->getMapSize(),
 												  tiledMap->getTileSize());
 	setDebugLayer(dwl);
-	getTiledMap()->addChild(dwl);
+	//getTiledMap()->addChild(dwl);
 	
 	
 	DebugVecLayer * dvl = DebugVecLayer::create(tiledMap->getMapSize(),
 												tiledMap->getTileSize());
 	setDebugVecLayer(dvl);
-	getTiledMap()->addChild(dvl);
+	//getTiledMap()->addChild(dvl);
+	
+	const float arraySpritePixelsPerTile = 5; //very hard to explain this constant meaning, jft, 25 pixels per tile
+	float scaleFactor = tiledMap->getTileSize().width / arraySpritePixelsPerTile; //@note: for simply, lets say, that tile width == height
+	Size arrayMapSize = Size(tiledMap->getMapSize().width * arraySpritePixelsPerTile, tiledMap->getMapSize().height * arraySpritePixelsPerTile);
+	_assResolution = arrayMapSize.width * arrayMapSize.height;
+	
+	_tempSpriteData = new GLbyte[4 * _assResolution];
+	genRandomTexture();
+	
+	ArraySprite * as = ArraySprite::create(arrayMapSize, _tempSpriteData);
+	setArraySprite(as);
+	as->setAnchorPoint(Vec2(0, 0));
+	as->setScale(scaleFactor);
+	getTiledMap()->addChild(as);
+	
+}
+
+void GameScene::genRandomTexture()
+{
+	for(size_t i = 0; i <= _assResolution; i++)
+	{
+		_tempSpriteData[i * 4 + 1]=0;
+		_tempSpriteData[i * 4 + 2]=0;
+		
+		if(rand() % 10 < 1)
+		{
+			_tempSpriteData[i * 4 + 0]=255;
+			_tempSpriteData[i * 4 + 3]=128;
+		}
+		else
+		{
+			_tempSpriteData[i * 4 + 0]=0;
+			_tempSpriteData[i * 4 + 3]=0;
+		}
+	}
 }
 
 void GameScene::onDebugMapUpdated(EventCustom * event)
@@ -151,4 +188,10 @@ void GameScene::update(float delta)
 	Scene::update(delta);
 	
 	_battle.update(delta);
+	
+	if(getArraySprite() != NULL)
+	{
+		genRandomTexture();
+		getArraySprite()->update(_tempSpriteData);
+	}
 }

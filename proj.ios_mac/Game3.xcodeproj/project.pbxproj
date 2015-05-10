@@ -34,6 +34,8 @@
 		3F59F69B1AF68428009AD13F /* energy_sprite.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F59F6991AF68428009AD13F /* energy_sprite.png */; };
 		3F59F69E1AF807C5009AD13F /* DebugVecLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F59F69C1AF807C5009AD13F /* DebugVecLayer.cpp */; };
 		3F59F69F1AF807C5009AD13F /* DebugVecLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F59F69C1AF807C5009AD13F /* DebugVecLayer.cpp */; };
+		3F941D831AFBF52C0032E7B0 /* ArraySprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F941D811AFBF52C0032E7B0 /* ArraySprite.cpp */; };
+		3F941D841AFBF52C0032E7B0 /* ArraySprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F941D811AFBF52C0032E7B0 /* ArraySprite.cpp */; };
 		3FAC2E261AD7209900A729AA /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FAC2E241AD7209900A729AA /* GameScene.cpp */; };
 		3FAC2E271AD7209900A729AA /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FAC2E241AD7209900A729AA /* GameScene.cpp */; };
 		3FE45BCD1ADC5BB30096C53C /* MoveSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FE45BCB1ADC5BB30096C53C /* MoveSystem.cpp */; };
@@ -149,6 +151,8 @@
 		3F59F6991AF68428009AD13F /* energy_sprite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = energy_sprite.png; sourceTree = "<group>"; };
 		3F59F69C1AF807C5009AD13F /* DebugVecLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DebugVecLayer.cpp; sourceTree = "<group>"; };
 		3F59F69D1AF807C5009AD13F /* DebugVecLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugVecLayer.h; sourceTree = "<group>"; };
+		3F941D811AFBF52C0032E7B0 /* ArraySprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArraySprite.cpp; sourceTree = "<group>"; };
+		3F941D821AFBF52C0032E7B0 /* ArraySprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArraySprite.h; sourceTree = "<group>"; };
 		3FAC2E241AD7209900A729AA /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		3FAC2E251AD7209900A729AA /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		3FE45BC21ADC52500096C53C /* PositionComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionComponent.h; sourceTree = "<group>"; };
@@ -399,6 +403,8 @@
 				3F59F6961AF64AFF009AD13F /* DebugWaveLayer.h */,
 				3F59F69C1AF807C5009AD13F /* DebugVecLayer.cpp */,
 				3F59F69D1AF807C5009AD13F /* DebugVecLayer.h */,
+				3F941D811AFBF52C0032E7B0 /* ArraySprite.cpp */,
+				3F941D821AFBF52C0032E7B0 /* ArraySprite.h */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -615,6 +621,7 @@
 				3F59F6971AF64AFF009AD13F /* DebugWaveLayer.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				3F1D032F1ADA8644002ADC36 /* Battle.cpp in Sources */,
+				3F941D831AFBF52C0032E7B0 /* ArraySprite.cpp in Sources */,
 				3F59F69E1AF807C5009AD13F /* DebugVecLayer.cpp in Sources */,
 				3FAC2E261AD7209900A729AA /* GameScene.cpp in Sources */,
 				3F59F6041AE3CBCE009AD13F /* BezierMoveSystem.cpp in Sources */,
@@ -626,6 +633,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F941D841AFBF52C0032E7B0 /* ArraySprite.cpp in Sources */,
 				3F59F6981AF64AFF009AD13F /* DebugWaveLayer.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				3F59F69F1AF807C5009AD13F /* DebugVecLayer.cpp in Sources */,
