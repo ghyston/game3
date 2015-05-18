@@ -12,6 +12,7 @@ MoveSystem::MoveSystem()
 {
 	addComponentType<MovementComponent>();
 	addComponentType<PositionComponent>();
+	_gameMap = NULL;
 };
 
 MoveSystem::~MoveSystem()
@@ -33,12 +34,12 @@ void MoveSystem::processEntity(artemis::Entity &e)
 	MovementComponent * movCmp = movementMapper.get(e);
 	
 	// update speed by potential map
-	Vec2 tileCoords = getTileCoordsForPosition(posCmpt->_pos);
-	int tileID = getIdByCoords(tileCoords);
+	Vec2 tileCoords = _gameMap->getTileCoordsForPosition(posCmpt->_pos);
+	int tileID = _gameMap->getIdByCoords(tileCoords);
 	
 	
-	Vec2 tileVelocity = 100 * vecMap[tileID];
-	Vec2 collisionVelocity = 100 * collisionsVecMap[tileID];
+	Vec2 tileVelocity = 100 * _particleMap->getVecByTileID(tileID);
+	Vec2 collisionVelocity = 100 * _gameMap->getCollisionVecByTileID(tileID);
 	
 	Vec2 steering = tileVelocity + collisionVelocity;
 	float steerLength = steering.length();
@@ -79,7 +80,7 @@ void MoveSystem::processEntity(artemis::Entity &e)
 };
 
 //@todo: duplicated at battle, move map stuff to other class!
-int MoveSystem::getIdByCoords(Vec2 coords)
+/*int MoveSystem::getIdByCoords(Vec2 coords)
 {
 	return coords.y * mapSize.x + coords.x;
 }
@@ -89,4 +90,4 @@ Vec2 MoveSystem::getTileCoordsForPosition(Vec2 pos)
 	int x = pos.x / tileSize.x;
 	int y = ((mapSize.y * tileSize.y) - pos.y) / tileSize.y;
 	return Vec2(x, y);
-}
+}*/

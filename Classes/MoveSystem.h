@@ -15,6 +15,8 @@
 #include "PositionComponent.h"
 #include "MovementComponent.h"
 #include "RenderComponent.h"
+#include "GameMap.h"
+#include "ParticleMap.h"
 
 using namespace cocos2d;
 
@@ -30,18 +32,20 @@ public:
 	virtual void processEntity(artemis::Entity &e);
 	
 	//@todo: should be just link to map (or similar interface)!
-	Vec2 * vecMap;
-	Vec2 * collisionsVecMap;
-	Vec2 mapSize;
-	Vec2 tileSize;
+	//Vec2 * vecMap;
+	GameMap * _gameMap;
+	ParticleMap * _particleMap;
+	//Vec2 * collisionsVecMap;
+	//Vec2 mapSize;
+	//Vec2 tileSize;
 	
 private:
 	
 	artemis::ComponentMapper<MovementComponent> movementMapper;
 	artemis::ComponentMapper<PositionComponent> positionMapper;
 	
-	int getIdByCoords(Vec2 coords);
-	Vec2 getTileCoordsForPosition(Vec2 pos);
+	//int getIdByCoords(Vec2 coords);
+	//Vec2 getTileCoordsForPosition(Vec2 pos);
 	
 };
 

@@ -46,7 +46,7 @@ bool GameScene::init()
 	ed->addCustomEventListener("DEBUG_MAP_UPDATED", CC_CALLBACK_1(GameScene::onDebugMapUpdated, this));
 	ed->addCustomEventListener("DEBUG_VEC_MAP_UPDATED", CC_CALLBACK_1(GameScene::onDebugVecMapUpdated, this));
 	
-	_battle.init(0, 0);
+	_battle.init();
 	
 	auto touchListener = EventListenerTouchOneByOne::create();
 	
@@ -71,11 +71,10 @@ void GameScene::onTouchEnded(cocos2d::Touch* t, cocos2d::Event* e)
 {
 	_touched = false;
 	Vec2 loc = t->getLocation();
-	//_battle.startShipMoving(loc);
 	
 	Vec2 startLoc = t->getStartLocation();
 	
-	if((abs(startLoc.x - loc.x) < 10) && (abs(startLoc.y - loc.y) < 10))
+	if((std::abs(startLoc.x - loc.x) < 10) && (std::abs(startLoc.y - loc.y) < 10))
 	   _battle.updateGoal(loc - getTiledMap()->getPosition());
 }
 

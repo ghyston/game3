@@ -9,6 +9,9 @@
 #ifndef __Game3__Battle__
 #define __Game3__Battle__
 
+#include "GameMap.h"
+#include "ParticleMap.h"
+
 #include <Artemis/Artemis.h>
 
 using namespace artemis;
@@ -24,7 +27,7 @@ public:
 	Battle();
 	~Battle();
 	
-	bool init(int mapCellsX, int mapCellsY); //@todo: here should be all data about current game: players, map
+	bool init(); //@todo: here should be all data about current game: players, map
 	
 	void update(float delta);
 	
@@ -37,20 +40,8 @@ private:
 	
 	int _touchedShipId;
 	
-	//@todo: move it to separate class!
-	TMXTiledMap * _tiledMap;
-	int _mapSizeX;
-	int _mapSizeY;
-	int * _isCollidable;
-	int * _heatmap;
-	Vec2 * _vecMap;
-	Vec2 * _collisionVecMap;
-	
-	void recalculateMapVectors(Vec2 goal);
-	bool calculteHeatMapAtCell(Vec2 cell, int value);
-	int getIdByCoords(Vec2 coords);
-	Vec2 getTileCoordsForPosition(Vec2 pos);
-	
+	CC_SYNTHESIZE_RETAIN(GameMap *, _gameMap, GameMap);
+	CC_SYNTHESIZE_RETAIN(ParticleMap *, _particleMap, ParticleMap);	
 };
 
 #endif /* defined(__Game3__Battle__) */

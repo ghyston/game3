@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include <Artemis/Artemis.h>
+#include "MyMacroses.h"
 
 /**
 @brief    The cocos2d Application.
