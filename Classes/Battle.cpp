@@ -18,6 +18,7 @@
 
 #include "MoveSystem.h"
 #include "BezierMoveSystem.h"
+#include "ParticleHandlingSystem.h"
 
 #include "EntityFabric.h"
 
@@ -27,11 +28,17 @@ Battle::Battle()
 {
 	_touchedShipId = -1;
 	_gameMap = NULL;
+	_particleMap = NULL;
+	_countMap = NULL;
+	_gradientMap = NULL;
 }
 
 Battle::~Battle()
 {
 	setGameMap(NULL);
+	setParticleMap(NULL);
+	setCountMap(NULL);
+	setGradientMap(NULL);
 }
 
 bool Battle::init()
@@ -39,8 +46,10 @@ bool Battle::init()
 	// init ECS
 	SystemManager * sysManager =  _world.getSystemManager();
 	MoveSystem * ms = new MoveSystem();
+	ParticleHandlingSystem * phs = new ParticleHandlingSystem();
 	sysManager->setSystem(ms);
 	sysManager->setSystem(new BezierMoveSystem());
+	sysManager->setSystem(phs);
 	sysManager->initializeAll();
 	
 	GameMap * gameMap = GameMap::createWithFileName("second.tmx");
@@ -54,12 +63,32 @@ bool Battle::init()
 	event->setUserData(gameMap->getTiledMap());
 	cocos2d::Director::getInstance()->getEventDispatcher()->dispatchEvent(event);
 	
-	//add tower for test
-	EntityFabric::createParticle(_world);
+	const float arraySpritePixelsPerTile = 10; //very hard to explain this constant meaning
+	Size countMapSize;
+	countMapSize.width = gameMap->getTiledMap()->getMapSize().width * arraySpritePixelsPerTile;
+	countMapSize.height = gameMap->getTiledMap()->getMapSize().height * arraySpritePixelsPerTile;
 	
+	float tileSize = gameMap->getTiledMap()->getTileSize().width / arraySpritePixelsPerTile;
+	CountMap * countMap = CountMap::create(countMapSize, tileSize);
+	setCountMap(countMap);
+	
+	GradientMap * gradientsMap = GradientMap::createWithParams(countMap);
+	setGradientMap(gradientsMap);
+	
+	EventCustom * event2 = new EventCustom("COUNT_MAP_LOADED");
+	event2->autorelease();
+	event2->setUserData(countMap);
+	cocos2d::Director::getInstance()->getEventDispatcher()->dispatchEvent(event2);
 
+	for (int i = 0; i < 10000; i++)
+		EntityFabric::createParticle(_world);
+	
 	ms->_gameMap = gameMap;
 	ms->_particleMap = particleMap;
+	ms->_gradientMap = gradientsMap;
+	ms->_countMap = countMap;
+	phs->_countMap = countMap;
+	phs->_gradientMap = gradientsMap;
 		
 	return true;
 }
@@ -76,6 +105,11 @@ void Battle::update(float delta)
 	
 	BezierMoveSystem* bms = (BezierMoveSystem*)sysManager->getSystem<BezierMoveSystem>();
 	bms->process();
+	
+	ParticleHandlingSystem * phs = (ParticleHandlingSystem*)sysManager->getSystem<ParticleHandlingSystem>();
+	phs->preProcess();
+	phs->process();
+	phs->postProcess();
 }
 
 void Battle::updateGoal(Vec2 coords)

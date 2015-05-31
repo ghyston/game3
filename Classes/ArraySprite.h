@@ -19,7 +19,7 @@ public:
 	
 	~ArraySprite();
 	
-	static ArraySprite * create(Size size, GLbyte * data)
+	static ArraySprite * create(Size size, const GLubyte * data)
 	{
 		ArraySprite * instance = new ArraySprite();
 		instance->init(size, data);
@@ -27,13 +27,13 @@ public:
 		return instance;
 	}
 	
-	void update(GLbyte * data);
+	void update(const GLubyte * data);
 	
 private:
 	
 	ArraySprite();
 	
-	bool init(Size size, GLbyte * data);
+	bool init(Size size, const GLubyte * data);
 	Size _textureSize;
 	Texture2D *_texture; //@todo: release it safety!
 	

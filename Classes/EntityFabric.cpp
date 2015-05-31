@@ -79,21 +79,21 @@ int EntityFabric::createParticle(World& world)
 	
 	MovementComponent * movCmp = new MovementComponent();
 	PositionComponent * posCmp = new PositionComponent();
-	RenderComponent * renderCmp = new RenderComponent();
+//	RenderComponent * renderCmp = new RenderComponent();
 	
-	Sprite * sprite = Sprite::create("energy_sprite.png");
-	renderCmp->_sprite = sprite;
+//	Sprite * sprite = Sprite::create("energy_sprite.png");
+//	renderCmp->_sprite = sprite;
 	
-	posCmp->_pos = Vec2(300, 300);
+	posCmp->_pos = Vec2(300 + rand() % 20, 300 + rand() % 20);
 	
-	EventCustom * event = new EventCustom("NEW_TOWER_SPRITE");
+/*	EventCustom * event = new EventCustom("NEW_TOWER_SPRITE");
 	event->autorelease();
 	event->setUserData(sprite);
 	
-	cocos2d::Director::getInstance()->getEventDispatcher()->dispatchEvent(event);
+	cocos2d::Director::getInstance()->getEventDispatcher()->dispatchEvent(event);*/
 	
 	particle.addComponent(movCmp);
-	particle.addComponent(renderCmp);
+//	particle.addComponent(renderCmp);
 	particle.addComponent(posCmp);
 	particle.refresh();
 	

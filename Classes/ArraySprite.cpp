@@ -18,7 +18,7 @@ ArraySprite::~ArraySprite()
 	
 }
 
-bool ArraySprite::init(Size size, GLbyte * data)
+bool ArraySprite::init(Size size, const GLubyte * data)
 {
 	Sprite::init();
 	_textureSize = size;
@@ -35,7 +35,7 @@ bool ArraySprite::init(Size size, GLbyte * data)
 	return false;
 }
 
-void ArraySprite::update(GLbyte * data)
+void ArraySprite::update(const GLubyte * data)
 {
 	_texture->updateWithData(data, 0, 0, _textureSize.width, _textureSize.height);
 	

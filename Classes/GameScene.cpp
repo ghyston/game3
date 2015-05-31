@@ -43,6 +43,7 @@ bool GameScene::init()
 	EventDispatcher * ed = d->getEventDispatcher();
 	ed->addCustomEventListener("NEW_TOWER_SPRITE", CC_CALLBACK_1(GameScene::onNewShip, this));
 	ed->addCustomEventListener("MAP_LOADED", CC_CALLBACK_1(GameScene::onMapLoaded, this));
+	ed->addCustomEventListener("COUNT_MAP_LOADED", CC_CALLBACK_1(GameScene::onCountMapLoaded, this));
 	ed->addCustomEventListener("DEBUG_MAP_UPDATED", CC_CALLBACK_1(GameScene::onDebugMapUpdated, this));
 	ed->addCustomEventListener("DEBUG_VEC_MAP_UPDATED", CC_CALLBACK_1(GameScene::onDebugVecMapUpdated, this));
 	
@@ -128,23 +129,37 @@ void GameScene::onMapLoaded(EventCustom * event)
 	setDebugVecLayer(dvl);
 	//getTiledMap()->addChild(dvl);
 	
-	const float arraySpritePixelsPerTile = 5; //very hard to explain this constant meaning, jft, 25 pixels per tile
+	/*const float arraySpritePixelsPerTile = 5; //very hard to explain this constant meaning, jft, 25 pixels per tile
 	float scaleFactor = tiledMap->getTileSize().width / arraySpritePixelsPerTile; //@note: for simply, lets say, that tile width == height
 	Size arrayMapSize = Size(tiledMap->getMapSize().width * arraySpritePixelsPerTile, tiledMap->getMapSize().height * arraySpritePixelsPerTile);
 	_assResolution = arrayMapSize.width * arrayMapSize.height;
 	
 	_tempSpriteData = new GLbyte[4 * _assResolution];
-	genRandomTexture();
+	genRandomTexture();*/
 	
-	ArraySprite * as = ArraySprite::create(arrayMapSize, _tempSpriteData);
+/*	ArraySprite * as = ArraySprite::create(arrayMapSize, _tempSpriteData);
 	setArraySprite(as);
 	as->setAnchorPoint(Vec2(0, 0));
 	as->setScale(scaleFactor);
-	getTiledMap()->addChild(as);
+	getTiledMap()->addChild(as);*/
 	
 }
 
-void GameScene::genRandomTexture()
+void GameScene::onCountMapLoaded(EventCustom * event)
+{
+	CountMap * cm = (CountMap *)(event->getUserData());
+	
+	Size mapSize(cm->getWidth(), cm->getHeight());
+	_spriteData = cm->getData();
+	ArraySprite * as = ArraySprite::create(mapSize, _spriteData);
+	setArraySprite(as);
+	as->setAnchorPoint(Vec2(0, 0));
+	//float asWidth = as->getContentSize().width;
+	as->setScale(3.2); //@todo
+	getTiledMap()->addChild(as);
+}
+
+/*void GameScene::genRandomTexture()
 {
 	for(size_t i = 0; i <= _assResolution; i++)
 	{
@@ -162,7 +177,7 @@ void GameScene::genRandomTexture()
 			_tempSpriteData[i * 4 + 3]=0;
 		}
 	}
-}
+}*/
 
 void GameScene::onDebugMapUpdated(EventCustom * event)
 {
@@ -190,7 +205,7 @@ void GameScene::update(float delta)
 	
 	if(getArraySprite() != NULL)
 	{
-		genRandomTexture();
-		getArraySprite()->update(_tempSpriteData);
+		//genRandomTexture();
+		getArraySprite()->update(_spriteData);
 	}
 }

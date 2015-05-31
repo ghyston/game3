@@ -30,6 +30,7 @@ public:
 	
 	void onNewShip(EventCustom * event);
 	void onMapLoaded(EventCustom * event);
+	void onCountMapLoaded(EventCustom * event);
 	void onDebugMapUpdated(EventCustom * event);
 	void onDebugVecMapUpdated(EventCustom * event);
 	
@@ -52,10 +53,11 @@ private:
 	CC_SYNTHESIZE_RETAIN(DebugVecLayer *, _debugVecLayer, DebugVecLayer);
 	CC_SYNTHESIZE_RETAIN(ArraySprite *, _arraySprite, ArraySprite);
 	
+	const GLubyte * _spriteData;
 	//@todo: jft, remove!
-	GLbyte * _tempSpriteData;
+	/*GLbyte * _tempSpriteData;
 	void genRandomTexture();
-	uint _assResolution;
+	uint _assResolution;*/
 	
 };
 

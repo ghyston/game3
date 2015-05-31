@@ -41,23 +41,34 @@ void MoveSystem::processEntity(artemis::Entity &e)
 	Vec2 tileVelocity = 100 * _particleMap->getVecByTileID(tileID);
 	Vec2 collisionVelocity = 100 * _gameMap->getCollisionVecByTileID(tileID);
 	
-	Vec2 steering = tileVelocity + collisionVelocity;
-	float steerLength = steering.length();
+	Vec2 steeringForce = tileVelocity + collisionVelocity;
+	float steerLength = steeringForce.length();
 	
 	const float MAX_FORCE = 50.0f;
 	if(steerLength >= MAX_FORCE)
 	{
-		steering.scale(MAX_FORCE / steerLength);
+		steeringForce.scale(MAX_FORCE / steerLength);
 	}
 	
+	Vec2 countTileCoords = _countMap->getTileCoordsForPosition(posCmpt->_pos);
+	int countTileId = _gradientMap->getIdByCoords(countTileCoords);
+	Vec2 gradForce = _gradientMap->getVecByTileID(countTileId);
+	float gradLength = gradForce.length();
+	if(gradLength >= MAX_FORCE * 10)
+	{
+		gradForce.scale(MAX_FORCE * 10 / gradLength);
+	}
 	
-	movCmp->_speed = movCmp->_speed + steering;
+	movCmp->_speed = movCmp->_speed + steeringForce + gradForce;
 	float speed = movCmp->_speed.length();
 	const float MAX_SPEED = 150.0f;
 	if(speed >= MAX_SPEED)
 	{
 		movCmp->_speed.scale(MAX_SPEED / speed);
 	}
+	
+	
+	
 	
 	//movCmp->_speed.x += tileVelocity.x * world->getDelta();
 	//movCmp->_speed.y += tileVelocity.y * world->getDelta();

@@ -11,6 +11,8 @@
 
 #include "GameMap.h"
 #include "ParticleMap.h"
+#include "CountMap.h"
+#include "GradientMap.h"
 
 #include <Artemis/Artemis.h>
 
@@ -41,7 +43,9 @@ private:
 	int _touchedShipId;
 	
 	CC_SYNTHESIZE_RETAIN(GameMap *, _gameMap, GameMap);
-	CC_SYNTHESIZE_RETAIN(ParticleMap *, _particleMap, ParticleMap);	
+	CC_SYNTHESIZE_RETAIN(ParticleMap *, _particleMap, ParticleMap);
+	CC_SYNTHESIZE_RETAIN(CountMap *, _countMap, CountMap);
+	CC_SYNTHESIZE_RETAIN(GradientMap *, _gradientMap, GradientMap);
 };
 
 #endif /* defined(__Game3__Battle__) */

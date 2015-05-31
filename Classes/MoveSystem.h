@@ -17,6 +17,8 @@
 #include "RenderComponent.h"
 #include "GameMap.h"
 #include "ParticleMap.h"
+#include "CountMap.h"
+#include "GradientMap.h"
 
 using namespace cocos2d;
 
@@ -32,9 +34,12 @@ public:
 	virtual void processEntity(artemis::Entity &e);
 	
 	//@todo: should be just link to map (or similar interface)!
-	//Vec2 * vecMap;
+	//@todo: make it const
 	GameMap * _gameMap;
 	ParticleMap * _particleMap;
+	GradientMap * _gradientMap;
+	CountMap * _countMap;
+	
 	//Vec2 * collisionsVecMap;
 	//Vec2 mapSize;
 	//Vec2 tileSize;
