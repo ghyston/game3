@@ -35,7 +35,7 @@ void ParticleHandlingSystem::processEntity(artemis::Entity &e)
 {
 	PositionComponent * posCmpt = positionMapper.get(e);
 	
-	Vec2 tileCoords =  _countMap->getTileCoordsForPosition(posCmpt->_pos);
+	Vec2 tileCoords =  _countMap->getTileCoordsByPos(posCmpt->_pos);
 	_countMap->incCount(tileCoords, 0);
 }
 

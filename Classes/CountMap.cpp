@@ -10,10 +10,7 @@
 
 CountMap::CountMap()
 {
-	_mapSizeX = 0;
-	_mapSizeY = 0;
 	_countData = NULL;
-	_tileSideSize = 0;
 }
 
 CountMap::~CountMap()
@@ -23,11 +20,9 @@ CountMap::~CountMap()
 
 void CountMap::init(Size size, float tileSideSize)
 {
-	_mapSizeX = size.width;
-	_mapSizeY = size.height;
+	initWithSize(size.width, size.height, Size(tileSideSize, tileSideSize));
 	_countData = new GLubyte[4 * _mapSizeX * _mapSizeY];
 	clean();
-	_tileSideSize = tileSideSize;
 }
 
 void CountMap::clean()
@@ -40,14 +35,14 @@ const GLubyte * CountMap::getData()
 	return _countData;
 }
 
-int CountMap::getIdByCoords(Vec2 coords, int channel)
+int CountMap::getIdByTileCoordsAndChannel(Vec2 coords, int channel)
 {
-	return 4 * (coords.y * _mapSizeX + coords.x) + channel;
+	return 4 * getIdByTileCoords(coords) + channel;
 }
 
 void CountMap::incCount(Vec2 point, int channel)
 {
-	int id = getIdByCoords(point, channel);
+	int id = getIdByTileCoordsAndChannel(point, channel);
 	if (_countData[id] < 15) {
 		_countData[id]++;
 	}
@@ -61,11 +56,4 @@ void CountMap::resetAlpha()
 		if(_countData[4 * i] > 0)
 			_countData[4 * i  + 3] = _countData[4 * i]; //set alpha
 	}
-}
-
-Vec2 CountMap::getTileCoordsForPosition(Vec2 pos)
-{
-	int x = pos.x / _tileSideSize;
-	int y = ((_mapSizeY * _tileSideSize) - pos.y) / _tileSideSize;
-	return Vec2(x, y);
 }

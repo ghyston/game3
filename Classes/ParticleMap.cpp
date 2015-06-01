@@ -15,25 +15,25 @@ ParticleMap::ParticleMap()
 
 ParticleMap::~ParticleMap()
 {
-	delete [] _heatmap;
-	delete [] _vecMap;
+	
 }
 
 bool ParticleMap::initWithParams(GameMap * gameMap)
 {
+	BaseMap::initWithMap(gameMap);
 	_gameMap = gameMap;
-	_mapSizeX = gameMap->_mapSizeX;
-	_mapSizeY = gameMap->_mapSizeY; //@todo: use anchors?
-	_heatmap	= new int[_mapSizeX * _mapSizeY];
-	_vecMap		= new Vec2[_mapSizeX * _mapSizeY];
+	
+	_heatmap.create(this);
+	_vecMap.create(this);
+	
 	clearGrids();
 	return true;
 }
 
 void ParticleMap::clearGrids()
 {
-	memset(_heatmap, -1, (size_t)(_mapSizeX * _mapSizeY * sizeof(int)));
-	memset(_vecMap, 0, (size_t)(_mapSizeX * _mapSizeY * sizeof(Vec2)));
+	_heatmap.clear(-1);
+	_vecMap.clear();
 }
 
 bool ParticleMap::recalculateGoal(Vec2 goal)
@@ -43,7 +43,7 @@ bool ParticleMap::recalculateGoal(Vec2 goal)
 	if(_gameMap->isCollidable(goal))
 		return false;
 	
-	calculateHeatGrid(_gameMap->getIdByCoords(goal));
+	calculateHeatGrid(getIdByTileCoords(goal));
 	calculateVecGrid();
 	return true;
 }
@@ -62,7 +62,7 @@ void ParticleMap::calculateHeatGrid(int goalCellId)
 		{
 			for(int iY = 0; iY < _mapSizeY; iY++)
 			{
-				int id = _gameMap->getIdByCoords(Vec2(iX, iY));
+				int id = getIdByTileCoords(Vec2(iX, iY));
 				
 				if(_heatmap[id] != currentValue)
 					continue;
@@ -94,11 +94,11 @@ void ParticleMap::calculateVecGrid()
 			yT = (iY == _mapSizeY - 1) ? iY : iY + 1;
 			yB = (iY == 0) ? iY : (iY - 1);
 			
-			int id = _gameMap->getIdByCoords(Vec2(iX, iY));
-			int idL = _gameMap->getIdByCoords(Vec2(xL, iY));
-			int idR = _gameMap->getIdByCoords(Vec2(xR, iY));
-			int idT = _gameMap->getIdByCoords(Vec2(iX, yT));
-			int idB = _gameMap->getIdByCoords(Vec2(iX, yB));
+			int id = getIdByTileCoords(Vec2(iX, iY));
+			int idL = getIdByTileCoords(Vec2(xL, iY));
+			int idR = getIdByTileCoords(Vec2(xR, iY));
+			int idT = getIdByTileCoords(Vec2(iX, yT));
+			int idB = getIdByTileCoords(Vec2(iX, yB));
 			
 			if(_gameMap->isCollidable(idL) == 1) idL = id;
 			if(_gameMap->isCollidable(idR) == 1) idR = id;
@@ -125,7 +125,7 @@ void ParticleMap::calculateVecGrid()
 
 bool ParticleMap::calculteHeatMapAtCell(Vec2 cell, int value)
 {
-	int id = _gameMap->getIdByCoords(cell);
+	int id = getIdByTileCoords(cell);
 	
 	if((cell.x < 0) ||
 	   (cell.x >= _mapSizeX) ||

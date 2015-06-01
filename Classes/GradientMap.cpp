@@ -10,36 +10,27 @@
 
 GradientMap::GradientMap()
 {
-	_mapSizeX = 0;
-	_mapSizeY = 0;
-	_vecMap = NULL;
 	_countMapData = NULL;
 }
 
 GradientMap::~GradientMap()
 {
-	delete [] _vecMap;
+
 }
 
 bool GradientMap::initWithParams(CountMap * countMap)
 {
+	initWithMap(countMap);
 	_countMapData = countMap->getData();
-	_mapSizeX = countMap->getWidth();
-	_mapSizeY = countMap->getHeight();
 	
-	_vecMap = new Vec2[_mapSizeX * _mapSizeY];
+	_vecMap.create(this);
 	clearGrids();
 	return true;
 }
 
 void GradientMap::clearGrids()
 {
-	memset(_vecMap, 0, (size_t)(_mapSizeX * _mapSizeY * sizeof(Vec2)));
-}
-
-int GradientMap::getIdByCoords(Vec2 coords)
-{
-	return coords.y * _mapSizeX + coords.x;
+	_vecMap.clear();
 }
 
 bool GradientMap::recalculateGradient()
@@ -53,11 +44,11 @@ bool GradientMap::recalculateGradient()
 			int yB = MAX(iY - 1, 0);
 			int yT = MIN(iY + 1, _mapSizeY - 1);
 			
-			int idL = getIdByCoords(Vec2(xL, iY));
-			int idR = getIdByCoords(Vec2(xR, iY));
-			int idT = getIdByCoords(Vec2(iX, yT));
-			int idB = getIdByCoords(Vec2(iX, yB));
-			int id = getIdByCoords(Vec2(iX, iY));
+			int idL = getIdByTileCoords(Vec2(xL, iY));
+			int idR = getIdByTileCoords(Vec2(xR, iY));
+			int idT = getIdByTileCoords(Vec2(iX, yT));
+			int idB = getIdByTileCoords(Vec2(iX, yB));
+			int id = getIdByTileCoords(Vec2(iX, iY));
 			
 			int dencityL = _countMapData[idL];
 			int dencityR = _countMapData[idR];

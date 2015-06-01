@@ -10,39 +10,39 @@
 
 GameMap::GameMap()
 {
-	_tiledMap = NULL;
+
 }
 
 GameMap::~GameMap()
 {
-	setTiledMap(NULL);
-	delete [] _isCollidable;
-	delete [] _collisionVecMap;
+	//delete [] _isCollidable;
+	//delete [] _collisionVecMap;
 }
 
-bool GameMap::initWithFileName(const std::string& filename)
+bool GameMap::initWithTmxMap(TMXTiledMap * tmxMap)
 {
-	setTiledMap(TMXTiledMap::create("second.tmx"));
+	BaseMap::initWithSize(tmxMap->getMapSize().width,
+						  tmxMap->getMapSize().height,
+						  tmxMap->getTileSize());
 	
-	initMemoryVariables();
-	initIsCollidableGrid();
+	initMemoryVariables(tmxMap);
+	initIsCollidableGrid(tmxMap);
 	initCollisionVecGrid();
 	return true;
 }
 
-void GameMap::initMemoryVariables()
+void GameMap::initMemoryVariables(TMXTiledMap * tmxMap)
 {
-	_mapSizeX = getTiledMap()->getMapSize().width;
-	_mapSizeY = getTiledMap()->getMapSize().height;
-	_isCollidable		= new int[_mapSizeX * _mapSizeY];
-	_collisionVecMap	= new Vec2[_mapSizeX * _mapSizeY];
-	memset(_isCollidable, 0, (size_t)(_mapSizeX * _mapSizeY * sizeof(int)));
-	memset(_collisionVecMap, 0, (size_t)(_mapSizeX * _mapSizeY * sizeof(Vec2)));
+	_isCollidable.create(this);
+	_collisionVecMap.create(this);
+	
+	_isCollidable.clear();
+	_collisionVecMap.clear();
 }
 
-void GameMap::initIsCollidableGrid()
+void GameMap::initIsCollidableGrid(TMXTiledMap * tmxMap)
 {
-	TMXLayer * layer1 = getTiledMap()->getLayer("Layer1");
+	TMXLayer * layer1 = tmxMap->getLayer("Layer1");
 	for(int iX = 0; iX < _mapSizeX; iX++)
 	{
 		for(int iY = 0; iY < _mapSizeY; iY++)
@@ -51,13 +51,13 @@ void GameMap::initIsCollidableGrid()
 			if (tileGid == 0)
 				continue;
 			
-			int isCollidableID = getIdByCoords(Vec2(iX, iY));
+			int isCollidableID = getIdByTileCoords(Vec2(iX, iY));
 			
-			Value properties = _tiledMap->getPropertiesForGID(tileGid);
+			Value properties = tmxMap->getPropertiesForGID(tileGid);
 			ValueMap& valMap = properties.asValueMap();
 			
-			_isCollidable[isCollidableID] = (valMap["collidable"].asString().compare("0")) ? 1 : 0;
-			//log("x: %i y: %i isCollideble: %s", iX, iY, _isCollidable[isCollidableID] ? "True" : "False");
+			int val = (valMap["collidable"].asString().compare("0")) ? 1 : 0;
+			_isCollidable.set(isCollidableID, val);
 		}
 	}
 }
@@ -68,7 +68,7 @@ void GameMap::initCollisionVecGrid()
 	{
 		for(int iY = 0; iY < _mapSizeY; iY++)
 		{
-			int id = getIdByCoords(Vec2(iX, iY));
+			int id = getIdByTileCoords(Vec2(iX, iY));
 			
 			if(_isCollidable[id] == 0)
 			{
@@ -88,52 +88,52 @@ void GameMap::initCollisionVecGrid()
 			// For all blocked cells on border calculate push force (by unblocked neighbors)
 			
 			// left
-			if(!leftBlocked && (_isCollidable[getIdByCoords(Vec2(iX - 1, iY))] == 0))
+			if(!leftBlocked && (_isCollidable[getIdByTileCoords(Vec2(iX - 1, iY))] == 0))
 			{
 				resultX--;
 			}
 			
 			// left top
-			if(!leftBlocked && !topBlocked && (_isCollidable[getIdByCoords(Vec2(iX - 1, iY + 1))] == 0))
+			if(!leftBlocked && !topBlocked && (_isCollidable[getIdByTileCoords(Vec2(iX - 1, iY + 1))] == 0))
 			{
 				resultX--;
 				resultY--;
 			}
 			
 			// top
-			if(!topBlocked && (_isCollidable[getIdByCoords(Vec2(iX, iY + 1))] == 0))
+			if(!topBlocked && (_isCollidable[getIdByTileCoords(Vec2(iX, iY + 1))] == 0))
 			{
 				resultY--;
 			}
 			
 			// top right
-			if(!topBlocked && !rightBlocked && (_isCollidable[getIdByCoords(Vec2(iX + 1, iY + 1))] == 0))
+			if(!topBlocked && !rightBlocked && (_isCollidable[getIdByTileCoords(Vec2(iX + 1, iY + 1))] == 0))
 			{
 				resultY--;
 				resultX++;
 			}
 			
 			// right
-			if(!rightBlocked && (_isCollidable[getIdByCoords(Vec2(iX + 1, iY))] == 0))
+			if(!rightBlocked && (_isCollidable[getIdByTileCoords(Vec2(iX + 1, iY))] == 0))
 			{
 				resultX++;
 			}
 			
 			// right bottom
-			if(!rightBlocked && !bottomBlocked && (_isCollidable[getIdByCoords(Vec2(iX + 1, iY - 1))] == 0))
+			if(!rightBlocked && !bottomBlocked && (_isCollidable[getIdByTileCoords(Vec2(iX + 1, iY - 1))] == 0))
 			{
 				resultX++;
 				resultY++;
 			}
 			
 			// bottom
-			if(!bottomBlocked && (_isCollidable[getIdByCoords(Vec2(iX, iY - 1))] == 0))
+			if(!bottomBlocked && (_isCollidable[getIdByTileCoords(Vec2(iX, iY - 1))] == 0))
 			{
 				resultY++;
 			}
 			
 			// bottom left
-			if(!leftBlocked && !bottomBlocked && (_isCollidable[getIdByCoords(Vec2(iX - 1, iY - 1))] == 0))
+			if(!leftBlocked && !bottomBlocked && (_isCollidable[getIdByTileCoords(Vec2(iX - 1, iY - 1))] == 0))
 			{
 				resultX--;
 				resultY++;
@@ -153,23 +153,10 @@ Vec2 GameMap::getCollisionVecByTileID(int tileID)
 
 bool GameMap::isCollidable(Vec2 coords)
 {
-	return isCollidable(getIdByCoords(coords));
+	return isCollidable(getIdByTileCoords(coords));
 }
 
 bool GameMap::isCollidable(int tileID)
 {
 	return _isCollidable[tileID];
 }
-
-int GameMap::getIdByCoords(Vec2 coords)
-{
-	return coords.y * _mapSizeX + coords.x;
-}
-
-Vec2 GameMap::getTileCoordsForPosition(Vec2 pos)
-{
-	int x = pos.x / _tiledMap->getTileSize().width;
-	int y = ((_tiledMap->getMapSize().height * _tiledMap->getTileSize().height) - pos.y) / _tiledMap->getTileSize().height;
-	return Vec2(x, y);
-}
-

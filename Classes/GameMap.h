@@ -10,18 +10,21 @@
 #define __Game3__Map__
 
 #include <Artemis/Artemis.h>
+#include "CommonMap.h"
+#include "MemoryGrid.h"
+#include "MyMacroses.h"
 
 using namespace artemis;
 using namespace cocos2d;
 
-class GameMap : public Ref
+class GameMap : public BaseMap
 {
 public:
 	
-	static GameMap * createWithFileName(const std::string& filename)
+	static GameMap * createWithTmxMap(TMXTiledMap * tmxMap)
 	{
 		GameMap * instance = new GameMap();
-		if(instance->initWithFileName(filename))
+		if(instance->initWithTmxMap(tmxMap))
 		{
 			instance->autorelease();
 			return instance;
@@ -34,29 +37,22 @@ public:
 		}
 	}
 	
-	virtual ~GameMap();
-	
 	Vec2 getCollisionVecByTileID(int tileID);
-	int getIdByCoords(Vec2 coords);
-	Vec2 getTileCoordsForPosition(Vec2 pos);
 	bool isCollidable(Vec2 coords);
 	bool isCollidable(int tileID);
 	
 private:
 	
-	bool initWithFileName(const std::string& filename);
-	void initMemoryVariables();
-	void initIsCollidableGrid();
+	bool initWithTmxMap(TMXTiledMap * tmxMap);
+	void initMemoryVariables(TMXTiledMap * tmxMap);
+	void initIsCollidableGrid(TMXTiledMap * tmxMap);
 	void initCollisionVecGrid();
 	
 	GameMap();
+	virtual ~GameMap();
 	
-	CC_SYNTHESIZE_RETAIN(TMXTiledMap *, _tiledMap, TiledMap);
-	
-	int _mapSizeX;
-	int _mapSizeY;
-	int * _isCollidable;
-	Vec2 * _collisionVecMap;
+	MemoryGrid<int> _isCollidable;
+	MemoryGrid<Vec2> _collisionVecMap;
 	
 };
 

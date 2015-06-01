@@ -20,6 +20,8 @@
 		3F19EFBD1B1B46F80093496F /* GradientMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFBA1B1B46F80093496F /* GradientMap.cpp */; };
 		3F19EFC01B1B53FB0093496F /* ParticleHandlingSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFBE1B1B53FB0093496F /* ParticleHandlingSystem.cpp */; };
 		3F19EFC11B1B53FB0093496F /* ParticleHandlingSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFBE1B1B53FB0093496F /* ParticleHandlingSystem.cpp */; };
+		3F19EFC51B1CF6EF0093496F /* CommonMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFC31B1CF6EF0093496F /* CommonMap.cpp */; };
+		3F19EFC61B1CF6F00093496F /* CommonMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFC31B1CF6EF0093496F /* CommonMap.cpp */; };
 		3F1D03281AD9DA01002ADC36 /* Artemis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1D03271AD9DA01002ADC36 /* Artemis.framework */; };
 		3F1D032C1ADA793E002ADC36 /* Artemis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1D032B1ADA793E002ADC36 /* Artemis.framework */; };
 		3F1D032F1ADA8644002ADC36 /* Battle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D032D1ADA8644002ADC36 /* Battle.cpp */; };
@@ -151,6 +153,9 @@
 		3F19EFBB1B1B46F80093496F /* GradientMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientMap.h; sourceTree = "<group>"; };
 		3F19EFBE1B1B53FB0093496F /* ParticleHandlingSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleHandlingSystem.cpp; sourceTree = "<group>"; };
 		3F19EFBF1B1B53FB0093496F /* ParticleHandlingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleHandlingSystem.h; sourceTree = "<group>"; };
+		3F19EFC31B1CF6EF0093496F /* CommonMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommonMap.cpp; sourceTree = "<group>"; };
+		3F19EFC41B1CF6EF0093496F /* CommonMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMap.h; sourceTree = "<group>"; };
+		3F19EFC81B1D08A40093496F /* MemoryGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryGrid.h; sourceTree = "<group>"; };
 		3F1D03271AD9DA01002ADC36 /* Artemis.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Artemis.framework; path = "../../_tools/Artemis-Cpp/Artemis.framework"; sourceTree = "<group>"; };
 		3F1D032B1ADA793E002ADC36 /* Artemis.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Artemis.framework; path = ../../../../../Library/Frameworks/Artemis.framework; sourceTree = "<group>"; };
 		3F1D032D1ADA8644002ADC36 /* Battle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Battle.cpp; sourceTree = "<group>"; };
@@ -353,23 +358,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3F19EFC21B1CF6E00093496F /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				3F19EFB61B1B3ACF0093496F /* CountMap.cpp */,
+				3F19EFB71B1B3ACF0093496F /* CountMap.h */,
+				3F19EFBA1B1B46F80093496F /* GradientMap.cpp */,
+				3F19EFBB1B1B46F80093496F /* GradientMap.h */,
+				3F941D851AFFAEDA0032E7B0 /* GameMap.cpp */,
+				3F941D861AFFAEDA0032E7B0 /* GameMap.h */,
+				3F1D9AD71B0A71AD00AF2FE3 /* ParticleMap.cpp */,
+				3F1D9AD81B0A71AE00AF2FE3 /* ParticleMap.h */,
+				3F19EFC31B1CF6EF0093496F /* CommonMap.cpp */,
+				3F19EFC41B1CF6EF0093496F /* CommonMap.h */,
+				3F19EFC81B1D08A40093496F /* MemoryGrid.h */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
 		3F1D03311ADA86D6002ADC36 /* Gameplay */ = {
 			isa = PBXGroup;
 			children = (
+				3F19EFC21B1CF6E00093496F /* Maps */,
 				3FE45BCF1ADC5C8D0096C53C /* Systems */,
 				3FE45BC01ADC52200096C53C /* Components */,
 				3F1D032D1ADA8644002ADC36 /* Battle.cpp */,
 				3F1D032E1ADA8644002ADC36 /* Battle.h */,
 				3FE45BD01ADC61FC0096C53C /* EntityFabric.cpp */,
 				3FE45BD11ADC61FC0096C53C /* EntityFabric.h */,
-				3F941D851AFFAEDA0032E7B0 /* GameMap.cpp */,
-				3F941D861AFFAEDA0032E7B0 /* GameMap.h */,
-				3F1D9AD71B0A71AD00AF2FE3 /* ParticleMap.cpp */,
-				3F1D9AD81B0A71AE00AF2FE3 /* ParticleMap.h */,
-				3F19EFB61B1B3ACF0093496F /* CountMap.cpp */,
-				3F19EFB71B1B3ACF0093496F /* CountMap.h */,
-				3F19EFBA1B1B46F80093496F /* GradientMap.cpp */,
-				3F19EFBB1B1B46F80093496F /* GradientMap.h */,
 			);
 			name = Gameplay;
 			sourceTree = "<group>";
@@ -649,6 +665,7 @@
 				3F19EFBC1B1B46F80093496F /* GradientMap.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				3F19EFC51B1CF6EF0093496F /* CommonMap.cpp in Sources */,
 				3FE45BCD1ADC5BB30096C53C /* MoveSystem.cpp in Sources */,
 				3F19EFB81B1B3ACF0093496F /* CountMap.cpp in Sources */,
 				3FE45BD21ADC61FC0096C53C /* EntityFabric.cpp in Sources */,
@@ -678,6 +695,7 @@
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				3F59F69F1AF807C5009AD13F /* DebugVecLayer.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
+				3F19EFC61B1CF6F00093496F /* CommonMap.cpp in Sources */,
 				3F59F6051AE3CBCE009AD13F /* BezierMoveSystem.cpp in Sources */,
 				3F941D881AFFAEDA0032E7B0 /* GameMap.cpp in Sources */,
 				3F1D03301ADA8644002ADC36 /* Battle.cpp in Sources */,

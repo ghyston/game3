@@ -34,8 +34,8 @@ void MoveSystem::processEntity(artemis::Entity &e)
 	MovementComponent * movCmp = movementMapper.get(e);
 	
 	// update speed by potential map
-	Vec2 tileCoords = _gameMap->getTileCoordsForPosition(posCmpt->_pos);
-	int tileID = _gameMap->getIdByCoords(tileCoords);
+	Vec2 tileCoords = _gameMap->getTileCoordsByPos(posCmpt->_pos);
+	int tileID = _gameMap->getIdByTileCoords(tileCoords);
 	
 	
 	Vec2 tileVelocity = 100 * _particleMap->getVecByTileID(tileID);
@@ -50,8 +50,8 @@ void MoveSystem::processEntity(artemis::Entity &e)
 		steeringForce.scale(MAX_FORCE / steerLength);
 	}
 	
-	Vec2 countTileCoords = _countMap->getTileCoordsForPosition(posCmpt->_pos);
-	int countTileId = _gradientMap->getIdByCoords(countTileCoords);
+	Vec2 countTileCoords = _countMap->getTileCoordsByPos(posCmpt->_pos);
+	int countTileId = _gradientMap->getIdByTileCoords(countTileCoords);
 	Vec2 gradForce = _gradientMap->getVecByTileID(countTileId);
 	float gradLength = gradForce.length();
 	if(gradLength >= MAX_FORCE * 10)

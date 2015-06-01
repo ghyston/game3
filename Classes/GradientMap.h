@@ -10,13 +10,14 @@
 #define __Game3__GradientMap__
 
 #include "CountMap.h"
+#include "MemoryGrid.h"
 
 #include <Artemis/Artemis.h>
 
 using namespace artemis;
 using namespace cocos2d;
 
-class GradientMap : public Ref
+class GradientMap : public BaseMap
 {
 public:
 	
@@ -38,7 +39,6 @@ public:
 	
 	bool recalculateGradient();
 	Vec2 getVecByTileID(int tileID);
-	int getIdByCoords(Vec2 coords);
 	void clearGrids();
 	
 private:
@@ -48,10 +48,8 @@ private:
 	
 	GradientMap();
 	virtual ~GradientMap();
-	
-	int _mapSizeX;
-	int _mapSizeY;
-	Vec2 * _vecMap;
+
+	MemoryGrid<Vec2> _vecMap;
 	
 	const GLubyte * _countMapData;
 	

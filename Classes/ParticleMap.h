@@ -10,13 +10,14 @@
 #define __Game3__ParticleMap__
 
 #include "GameMap.h"
+#include "MemoryGrid.h"
 
 #include <Artemis/Artemis.h>
 
 using namespace artemis;
 using namespace cocos2d;
 
-class ParticleMap : public Ref
+class ParticleMap : public BaseMap
 {
 public:
 	
@@ -50,11 +51,9 @@ private:
 	bool calculteHeatMapAtCell(Vec2 cell, int value);
 	
 	ParticleMap();
-		
-	int _mapSizeX;
-	int _mapSizeY;
-	int * _heatmap;
-	Vec2 * _vecMap;
+	
+	MemoryGrid<int> _heatmap;
+	MemoryGrid<Vec2> _vecMap;
 	
 	GameMap * _gameMap;
 	

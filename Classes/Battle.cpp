@@ -52,7 +52,9 @@ bool Battle::init()
 	sysManager->setSystem(phs);
 	sysManager->initializeAll();
 	
-	GameMap * gameMap = GameMap::createWithFileName("second.tmx");
+	TMXTiledMap * tmxMap = TMXTiledMap::create("second.tmx");
+	
+	GameMap * gameMap = GameMap::createWithTmxMap(tmxMap);
 	setGameMap(gameMap);
 	
 	ParticleMap * particleMap = ParticleMap::createWithParams(gameMap);
@@ -60,15 +62,15 @@ bool Battle::init()
 	
 	EventCustom * event = new EventCustom("MAP_LOADED");
 	event->autorelease();
-	event->setUserData(gameMap->getTiledMap());
+	event->setUserData(tmxMap);
 	cocos2d::Director::getInstance()->getEventDispatcher()->dispatchEvent(event);
 	
 	const float arraySpritePixelsPerTile = 10; //very hard to explain this constant meaning
 	Size countMapSize;
-	countMapSize.width = gameMap->getTiledMap()->getMapSize().width * arraySpritePixelsPerTile;
-	countMapSize.height = gameMap->getTiledMap()->getMapSize().height * arraySpritePixelsPerTile;
+	countMapSize.width = gameMap->getMapSizeX() * arraySpritePixelsPerTile;
+	countMapSize.height = gameMap->getMapSizeY() * arraySpritePixelsPerTile;
 	
-	float tileSize = gameMap->getTiledMap()->getTileSize().width / arraySpritePixelsPerTile;
+	float tileSize = gameMap->getTileSize().width / arraySpritePixelsPerTile; //@todo: omly width?
 	CountMap * countMap = CountMap::create(countMapSize, tileSize);
 	setCountMap(countMap);
 	
@@ -114,7 +116,7 @@ void Battle::update(float delta)
 
 void Battle::updateGoal(Vec2 coords)
 {
-	Vec2 goalPos = _gameMap->getTileCoordsForPosition(coords);
+	Vec2 goalPos = _gameMap->getTileCoordsByPos(coords);
 	getParticleMap()->recalculateGoal(goalPos);
 	
 	//@todo: think, how to update
