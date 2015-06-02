@@ -18,8 +18,8 @@ public:
 	void initWithSize(int sizeX, int sizeY, Size tileSize);
 	void initWithMap(const BaseMap * otherMap);
 	
-	virtual int getIdByTileCoords(Vec2 tileCoords);
-	virtual Vec2 getTileCoordsByPos(Vec2 globalPosition);
+	virtual int getIdByTileCoords(Vec2 tileCoords) const;
+	virtual Vec2 getTileCoordsByPos(Vec2 globalPosition) const;
 	
 protected:
 	

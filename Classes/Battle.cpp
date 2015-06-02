@@ -19,6 +19,7 @@
 #include "MoveSystem.h"
 #include "BezierMoveSystem.h"
 #include "ParticleHandlingSystem.h"
+#include "ParticleMoveSystem.h"
 
 #include "EntityFabric.h"
 
@@ -45,9 +46,10 @@ bool Battle::init()
 {
 	// init ECS
 	SystemManager * sysManager =  _world.getSystemManager();
-	MoveSystem * ms = new MoveSystem();
+	ParticleMoveSystem * pms = new ParticleMoveSystem();
 	ParticleHandlingSystem * phs = new ParticleHandlingSystem();
-	sysManager->setSystem(ms);
+	sysManager->setSystem(new MoveSystem());
+	sysManager->setSystem(pms);
 	sysManager->setSystem(new BezierMoveSystem());
 	sysManager->setSystem(phs);
 	sysManager->initializeAll();
@@ -55,12 +57,12 @@ bool Battle::init()
 	createMaps();
 	
 	for (int i = 0; i < 10000; i++)
-		EntityFabric::createParticle(_world);
+		EntityFabric::createParticle(_world, getParticleMap());
 	
-	ms->_gameMap = getGameMap();
-	ms->_particleMap = getParticleMap();
-	ms->_gradientMap = getGradientMap();
-	ms->_countMap = getCountMap();
+	pms->_gameMap = getGameMap();
+//	pms->_particleMap = getParticleMap();
+	pms->_gradientMap = getGradientMap();
+	pms->_countMap = getCountMap();
 	phs->_countMap = getCountMap();
 	phs->_gradientMap = getGradientMap();
 		
@@ -107,6 +109,9 @@ void Battle::update(float delta)
 	_world.loopStart();
 	
 	SystemManager * sysManager =  _world.getSystemManager();
+	
+	ParticleMoveSystem * pms = (ParticleMoveSystem*)sysManager->getSystem<ParticleMoveSystem>();
+	pms->process();
 	
 	MoveSystem* ms = (MoveSystem*)sysManager->getSystem<MoveSystem>();
 	ms->process();

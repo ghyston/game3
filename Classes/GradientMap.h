@@ -38,7 +38,7 @@ public:
 	}
 	
 	bool recalculateGradient();
-	Vec2 getVecByTileID(int tileID);
+	Vec2 getVecByTileID(int tileID) const;
 	void clearGrids();
 	
 private:

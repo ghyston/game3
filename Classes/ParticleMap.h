@@ -40,7 +40,7 @@ public:
 	}
 	
 	bool recalculateGoal(Vec2 goal);
-	Vec2 getVecByTileID(int tileID);
+	Vec2 getVecByTileID(int tileID) const;
 	
 private:
 	

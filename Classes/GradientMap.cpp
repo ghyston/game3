@@ -72,7 +72,7 @@ bool GradientMap::recalculateGradient()
 	return true;
 }
 
-Vec2 GradientMap::getVecByTileID(int tileID)
+Vec2 GradientMap::getVecByTileID(int tileID) const
 {
 	return _vecMap[tileID];
 }

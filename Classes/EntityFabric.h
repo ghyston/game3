@@ -12,13 +12,15 @@
 #include <Artemis/Artemis.h>
 using namespace artemis;
 
+#include "ParticleMap.h"
+
 class EntityFabric
 {
 public:
 	
 	static void createTower(World& world);
 	static int createShip(World& world);
-	static int createParticle(World& world);
+	static int createParticle(World& world, ParticleMap * map);
 	
 private:
 	

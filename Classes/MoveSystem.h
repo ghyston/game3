@@ -35,22 +35,15 @@ public:
 	
 	//@todo: should be just link to map (or similar interface)!
 	//@todo: make it const
-	GameMap * _gameMap;
+	/*GameMap * _gameMap;
 	ParticleMap * _particleMap;
 	GradientMap * _gradientMap;
-	CountMap * _countMap;
-	
-	//Vec2 * collisionsVecMap;
-	//Vec2 mapSize;
-	//Vec2 tileSize;
+	CountMap * _countMap;*/
 	
 private:
 	
 	artemis::ComponentMapper<MovementComponent> movementMapper;
 	artemis::ComponentMapper<PositionComponent> positionMapper;
-	
-	//int getIdByCoords(Vec2 coords);
-	//Vec2 getTileCoordsForPosition(Vec2 pos);
 	
 };
 

@@ -146,7 +146,7 @@ bool ParticleMap::calculteHeatMapAtCell(Vec2 cell, int value)
 	return  true;
 }
 
-Vec2 ParticleMap::getVecByTileID(int tileID)
+Vec2 ParticleMap::getVecByTileID(int tileID) const
 {
 	return _vecMap[tileID];
 }

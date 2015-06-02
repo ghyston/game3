@@ -146,17 +146,17 @@ void GameMap::initCollisionVecGrid()
 }
 
 //@todo: test, would it be faster, if all this functions will be inlined!
-Vec2 GameMap::getCollisionVecByTileID(int tileID)
+Vec2 GameMap::getCollisionVecByTileID(int tileID) const
 {
 	return _collisionVecMap[tileID];
 }
 
-bool GameMap::isCollidable(Vec2 coords)
+bool GameMap::isCollidable(Vec2 coords) const
 {
 	return isCollidable(getIdByTileCoords(coords));
 }
 
-bool GameMap::isCollidable(int tileID)
+bool GameMap::isCollidable(int tileID) const
 {
 	return _isCollidable[tileID];
 }

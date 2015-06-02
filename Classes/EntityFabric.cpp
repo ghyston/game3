@@ -16,6 +16,7 @@
 #include "NodeComponent.h"
 #include "EnergyStorageComponent.h"
 #include "EnergyGeneratorComponent.h"
+#include "ParticleComponent.h"
 
 using namespace cocos2d;
 
@@ -72,13 +73,16 @@ int EntityFabric::createShip(World& world)
 	return ship.getId();
 }
 
-int EntityFabric::createParticle(World& world)
+int EntityFabric::createParticle(World& world, ParticleMap * map)
 {
 	EntityManager * em = world.getEntityManager();
 	Entity & particle = em->create();
 	
 	MovementComponent * movCmp = new MovementComponent();
 	PositionComponent * posCmp = new PositionComponent();
+	
+	ParticleComponent * particleCmp = new ParticleComponent(map);
+	
 //	RenderComponent * renderCmp = new RenderComponent();
 	
 //	Sprite * sprite = Sprite::create("energy_sprite.png");
@@ -94,6 +98,7 @@ int EntityFabric::createParticle(World& world)
 	
 	particle.addComponent(movCmp);
 //	particle.addComponent(renderCmp);
+	particle.addComponent(particleCmp);
 	particle.addComponent(posCmp);
 	particle.refresh();
 	

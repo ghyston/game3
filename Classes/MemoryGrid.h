@@ -49,6 +49,11 @@ public:
 		return _data;
 	}
 	
+	const TypeName& operator[](const int memId) const
+	{
+		return _data[memId];
+	}
+	
 	TypeName& operator[](const int memId)
 	{
 		return _data[memId];
