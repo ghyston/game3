@@ -11,34 +11,42 @@
 
 #include <Artemis/Artemis.h>
 #include "CommonMap.h"
+#include "MemoryGrid.h"
 
 using namespace artemis;
 using namespace cocos2d;
+
+struct PixelRGBA
+{
+	GLubyte r;
+	GLubyte g;
+	GLubyte b;
+	GLubyte a;
+};
 
 class CountMap : public BaseMap
 {
 public:
 	
-	static CountMap * create(Size size, float tileSideSize)
+	static CountMap * create(Size mapSize, Size tileSize)
 	{
 		CountMap * instance = new CountMap();
-		instance->init(size, tileSideSize);
+		instance->init(mapSize, tileSize);
 		instance->autorelease();
 		return instance;
 	}
 	
 	void clean();
 	const GLubyte * getData();
-	void incCount(Vec2 point, int channel);
+	void incCountR(Vec2 point);
 	void resetAlpha();
 		
 private:
 	
-	void init(Size size, float tileSideSize);
+	void init(Size mapSize, Size tileSize);
 	
-	int getIdByTileCoordsAndChannel(Vec2 coords, int channel);
-	
-	GLubyte * _countData; //@todo: use MemoryGrid
+	MemoryGrid<PixelRGBA> _countData;
+	//GLubyte * _countData; //@todo: use MemoryGrid
 	
 	CountMap();
 	virtual ~CountMap();

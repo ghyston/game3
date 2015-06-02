@@ -51,7 +51,24 @@ bool Battle::init()
 	sysManager->setSystem(new BezierMoveSystem());
 	sysManager->setSystem(phs);
 	sysManager->initializeAll();
+
+	createMaps();
 	
+	for (int i = 0; i < 10000; i++)
+		EntityFabric::createParticle(_world);
+	
+	ms->_gameMap = getGameMap();
+	ms->_particleMap = getParticleMap();
+	ms->_gradientMap = getGradientMap();
+	ms->_countMap = getCountMap();
+	phs->_countMap = getCountMap();
+	phs->_gradientMap = getGradientMap();
+		
+	return true;
+}
+
+void Battle::createMaps()
+{
 	TMXTiledMap * tmxMap = TMXTiledMap::create("second.tmx");
 	
 	GameMap * gameMap = GameMap::createWithTmxMap(tmxMap);
@@ -70,7 +87,8 @@ bool Battle::init()
 	countMapSize.width = gameMap->getMapSizeX() * arraySpritePixelsPerTile;
 	countMapSize.height = gameMap->getMapSizeY() * arraySpritePixelsPerTile;
 	
-	float tileSize = gameMap->getTileSize().width / arraySpritePixelsPerTile; //@todo: omly width?
+	Size tileSize (gameMap->getTileSize().width / arraySpritePixelsPerTile,
+				   gameMap->getTileSize().height / arraySpritePixelsPerTile);
 	CountMap * countMap = CountMap::create(countMapSize, tileSize);
 	setCountMap(countMap);
 	
@@ -81,18 +99,6 @@ bool Battle::init()
 	event2->autorelease();
 	event2->setUserData(countMap);
 	cocos2d::Director::getInstance()->getEventDispatcher()->dispatchEvent(event2);
-
-	for (int i = 0; i < 10000; i++)
-		EntityFabric::createParticle(_world);
-	
-	ms->_gameMap = gameMap;
-	ms->_particleMap = particleMap;
-	ms->_gradientMap = gradientsMap;
-	ms->_countMap = countMap;
-	phs->_countMap = countMap;
-	phs->_gradientMap = gradientsMap;
-		
-	return true;
 }
 
 void Battle::update(float delta)

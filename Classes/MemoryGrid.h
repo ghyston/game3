@@ -19,7 +19,6 @@ public:
 	MemoryGrid()
 	{
 		_data = NULL;
-		_map = NULL;
 	}
 	
 	~MemoryGrid()
@@ -29,15 +28,15 @@ public:
 	
 	void create(const BaseMap * map)
 	{
-		_data = new TypeName[map->getMapSizeX() * map->getMapSizeY()];
-		_map = map;
+		_size = map->getMapSizeX() * map->getMapSizeY();
+		_data = new TypeName[_size];
 	}
 	
 	void clear(int defaultValue = 0)
 	{
 		memset(_data,
 			   defaultValue,
-			   (size_t)(_map->getMapSizeX() * _map->getMapSizeY() * sizeof(TypeName)));
+			   (size_t)(_size * sizeof(TypeName)));
 	}
 	
 	inline void set(int memId, TypeName& val)
@@ -55,15 +54,10 @@ public:
 		return _data[memId];
 	}
 	
-	/*inline TypeName& getDataByID(int memId)
-	{
-		return _data[memId];
-	}*/
-	
 private:
 	
 	TypeName * _data;
-	const BaseMap * _map;
+	int _size;
 	
 };
 

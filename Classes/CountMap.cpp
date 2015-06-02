@@ -10,41 +10,34 @@
 
 CountMap::CountMap()
 {
-	_countData = NULL;
 }
 
 CountMap::~CountMap()
 {
-	delete [] _countData;
 }
 
-void CountMap::init(Size size, float tileSideSize)
+void CountMap::init(Size mapSize, Size tileSize)
 {
-	initWithSize(size.width, size.height, Size(tileSideSize, tileSideSize));
-	_countData = new GLubyte[4 * _mapSizeX * _mapSizeY];
+	initWithSize(mapSize.width, mapSize.height, tileSize);
+	_countData.create(this);
 	clean();
 }
 
 void CountMap::clean()
 {
-	memset(_countData, 0, (size_t)(4 * _mapSizeX * _mapSizeY * sizeof(GLbyte)));
+	_countData.clear();
 }
 
 const GLubyte * CountMap::getData()
 {
-	return _countData;
+	return (GLubyte*)_countData.getData();
 }
 
-int CountMap::getIdByTileCoordsAndChannel(Vec2 coords, int channel)
+void CountMap::incCountR(Vec2 point)
 {
-	return 4 * getIdByTileCoords(coords) + channel;
-}
-
-void CountMap::incCount(Vec2 point, int channel)
-{
-	int id = getIdByTileCoordsAndChannel(point, channel);
-	if (_countData[id] < 15) {
-		_countData[id]++;
+	int id = getIdByTileCoords(point);
+	if (_countData[id].r < 15) {
+		_countData[id].r++;
 	}
 }
 
@@ -52,8 +45,8 @@ void CountMap::resetAlpha()
 {
 	for (int i = 0; i < _mapSizeX * _mapSizeY; i++)
 	{
-		_countData[4 * i] = _countData[4 * i] * 17;
-		if(_countData[4 * i] > 0)
-			_countData[4 * i  + 3] = _countData[4 * i]; //set alpha
+		_countData[i].r = _countData[i].r * 17;
+		if(_countData[i].r > 0)
+			_countData[i].a = _countData[i].r; //set alpha equal to red (should be on shader)
 	}
 }

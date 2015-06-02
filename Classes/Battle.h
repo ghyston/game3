@@ -42,6 +42,8 @@ private:
 	
 	int _touchedShipId;
 	
+	void createMaps();
+	
 	CC_SYNTHESIZE_RETAIN(GameMap *, _gameMap, GameMap);
 	CC_SYNTHESIZE_RETAIN(ParticleMap *, _particleMap, ParticleMap);
 	CC_SYNTHESIZE_RETAIN(CountMap *, _countMap, CountMap);
