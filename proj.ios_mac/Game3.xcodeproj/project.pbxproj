@@ -24,6 +24,8 @@
 		3F19EFC61B1CF6F00093496F /* CommonMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFC31B1CF6EF0093496F /* CommonMap.cpp */; };
 		3F19EFCE1B1E5E7F0093496F /* ParticleMoveSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFCC1B1E5E7F0093496F /* ParticleMoveSystem.cpp */; };
 		3F19EFCF1B1E5E7F0093496F /* ParticleMoveSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFCC1B1E5E7F0093496F /* ParticleMoveSystem.cpp */; };
+		3F19EFD21B1FA97E0093496F /* GradientCalcSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFD01B1FA97E0093496F /* GradientCalcSystem.cpp */; };
+		3F19EFD31B1FA97E0093496F /* GradientCalcSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFD01B1FA97E0093496F /* GradientCalcSystem.cpp */; };
 		3F1D03281AD9DA01002ADC36 /* Artemis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1D03271AD9DA01002ADC36 /* Artemis.framework */; };
 		3F1D032C1ADA793E002ADC36 /* Artemis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1D032B1ADA793E002ADC36 /* Artemis.framework */; };
 		3F1D032F1ADA8644002ADC36 /* Battle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D032D1ADA8644002ADC36 /* Battle.cpp */; };
@@ -161,6 +163,8 @@
 		3F19EFCB1B1E5E0D0093496F /* ParticleComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ParticleComponent.h; sourceTree = "<group>"; };
 		3F19EFCC1B1E5E7F0093496F /* ParticleMoveSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleMoveSystem.cpp; sourceTree = "<group>"; };
 		3F19EFCD1B1E5E7F0093496F /* ParticleMoveSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleMoveSystem.h; sourceTree = "<group>"; };
+		3F19EFD01B1FA97E0093496F /* GradientCalcSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GradientCalcSystem.cpp; sourceTree = "<group>"; };
+		3F19EFD11B1FA97E0093496F /* GradientCalcSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientCalcSystem.h; sourceTree = "<group>"; };
 		3F1D03271AD9DA01002ADC36 /* Artemis.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Artemis.framework; path = "../../_tools/Artemis-Cpp/Artemis.framework"; sourceTree = "<group>"; };
 		3F1D032B1ADA793E002ADC36 /* Artemis.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Artemis.framework; path = ../../../../../Library/Frameworks/Artemis.framework; sourceTree = "<group>"; };
 		3F1D032D1ADA8644002ADC36 /* Battle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Battle.cpp; sourceTree = "<group>"; };
@@ -422,6 +426,8 @@
 				3F19EFBF1B1B53FB0093496F /* ParticleHandlingSystem.h */,
 				3F19EFCC1B1E5E7F0093496F /* ParticleMoveSystem.cpp */,
 				3F19EFCD1B1E5E7F0093496F /* ParticleMoveSystem.h */,
+				3F19EFD01B1FA97E0093496F /* GradientCalcSystem.cpp */,
+				3F19EFD11B1FA97E0093496F /* GradientCalcSystem.h */,
 			);
 			name = Systems;
 			sourceTree = "<group>";
@@ -685,6 +691,7 @@
 				3F941D831AFBF52C0032E7B0 /* ArraySprite.cpp in Sources */,
 				3F59F69E1AF807C5009AD13F /* DebugVecLayer.cpp in Sources */,
 				3FAC2E261AD7209900A729AA /* GameScene.cpp in Sources */,
+				3F19EFD21B1FA97E0093496F /* GradientCalcSystem.cpp in Sources */,
 				3F59F6041AE3CBCE009AD13F /* BezierMoveSystem.cpp in Sources */,
 				3F941D871AFFAEDA0032E7B0 /* GameMap.cpp in Sources */,
 				3F1D9AD91B0A71AE00AF2FE3 /* ParticleMap.cpp in Sources */,
@@ -706,6 +713,7 @@
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				3F19EFC61B1CF6F00093496F /* CommonMap.cpp in Sources */,
 				3F59F6051AE3CBCE009AD13F /* BezierMoveSystem.cpp in Sources */,
+				3F19EFD31B1FA97E0093496F /* GradientCalcSystem.cpp in Sources */,
 				3F941D881AFFAEDA0032E7B0 /* GameMap.cpp in Sources */,
 				3F19EFCF1B1E5E7F0093496F /* ParticleMoveSystem.cpp in Sources */,
 				3F1D03301ADA8644002ADC36 /* Battle.cpp in Sources */,

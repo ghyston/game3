@@ -8,6 +8,8 @@
 
 #include "Battle.h"
 
+#include "time.h"
+
 #include "PositionComponent.h"
 #include "MovementComponent.h"
 #include "NodeComponent.h"
@@ -20,6 +22,7 @@
 #include "BezierMoveSystem.h"
 #include "ParticleHandlingSystem.h"
 #include "ParticleMoveSystem.h"
+#include "GradientCalcSystem.h"
 
 #include "EntityFabric.h"
 
@@ -48,10 +51,12 @@ bool Battle::init()
 	SystemManager * sysManager =  _world.getSystemManager();
 	ParticleMoveSystem * pms = new ParticleMoveSystem();
 	ParticleHandlingSystem * phs = new ParticleHandlingSystem();
+	GradientCalcSystem * gcs = new GradientCalcSystem();
 	sysManager->setSystem(new MoveSystem());
 	sysManager->setSystem(pms);
 	sysManager->setSystem(new BezierMoveSystem());
 	sysManager->setSystem(phs);
+	sysManager->setSystem(gcs);
 	sysManager->initializeAll();
 
 	createMaps();
@@ -65,6 +70,7 @@ bool Battle::init()
 	pms->_countMap = getCountMap();
 	phs->_countMap = getCountMap();
 	phs->_gradientMap = getGradientMap();
+	gcs->_gradientMap = getGradientMap();
 		
 	return true;
 }
@@ -110,19 +116,51 @@ void Battle::update(float delta)
 	
 	SystemManager * sysManager =  _world.getSystemManager();
 	
+	//auto t0 = std::chrono::high_resolution_clock::now();
+	
 	ParticleMoveSystem * pms = (ParticleMoveSystem*)sysManager->getSystem<ParticleMoveSystem>();
 	pms->process();
+	
+	//auto t10 = std::chrono::high_resolution_clock::now();
 	
 	MoveSystem* ms = (MoveSystem*)sysManager->getSystem<MoveSystem>();
 	ms->process();
 	
+	//auto t20 = std::chrono::high_resolution_clock::now();
+	
 	BezierMoveSystem* bms = (BezierMoveSystem*)sysManager->getSystem<BezierMoveSystem>();
 	bms->process();
 	
+	//auto t30 = std::chrono::high_resolution_clock::now();
+	
+	GradientCalcSystem * gcs = (GradientCalcSystem*)sysManager->getSystem<GradientCalcSystem>();
+	gcs->process();
+	
+	//auto t40 = std::chrono::high_resolution_clock::now();
+	
 	ParticleHandlingSystem * phs = (ParticleHandlingSystem*)sysManager->getSystem<ParticleHandlingSystem>();
 	phs->preProcess();
+	auto t41 = std::chrono::high_resolution_clock::now();
 	phs->process();
+	auto t42 = std::chrono::high_resolution_clock::now();
 	phs->postProcess();
+	
+	//auto t50 = std::chrono::high_resolution_clock::now();
+	
+	/*long long int pmsTS = std::chrono::duration_cast<std::chrono::milliseconds>(t10 - t0).count();
+	long long int msTS = std::chrono::duration_cast<std::chrono::milliseconds>(t20 - t10).count();
+	long long int bmsTS = std::chrono::duration_cast<std::chrono::milliseconds>(t30 - t20).count();
+	long long int gcsTS = std::chrono::duration_cast<std::chrono::milliseconds>(t40 - t30).count();
+	long long int phsTS = std::chrono::duration_cast<std::chrono::milliseconds>(t50 - t40).count();
+	
+	long long int pre_phsTS = std::chrono::duration_cast<std::chrono::milliseconds>(t41 - t40).count();
+	long long int proc_phsTS = std::chrono::duration_cast<std::chrono::milliseconds>(t42 - t41).count();
+	long long int post_phsTS = std::chrono::duration_cast<std::chrono::milliseconds>(t50 - t42).count();*/
+	
+	//printf("pre: %lld proc: %lld post: %lld \n", pre_phsTS, proc_phsTS, post_phsTS);
+	
+	//printf("pms: %lld ms: %lld bms: %lld gcs: %lld phs: %lld\n", pmsTS, msTS, bmsTS, gcsTS, phsTS);
+	
 }
 
 void Battle::updateGoal(Vec2 coords)
