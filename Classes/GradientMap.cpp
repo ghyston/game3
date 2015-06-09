@@ -40,7 +40,7 @@ void GradientMap::recalculateGradientAt(Vec2 coords)
 	int iX = coords.x;
 	int iY = coords.y;
 	
-	id = getIdByTileCoords(Vec2(iX, iY));
+	id = getIdByTileCoords(iX, iY);
 	
 	if((_vecMap[id].x > 0) || (_vecMap[id].y > 0))
 		return;
@@ -50,10 +50,10 @@ void GradientMap::recalculateGradientAt(Vec2 coords)
 	yB = MAX(iY - 1, 0);
 	yT = MIN(iY + 1, _mapSizeY - 1);
 	
-	idL = getIdByTileCoords(Vec2(xL, iY));
-	idR = getIdByTileCoords(Vec2(xR, iY));
-	idT = getIdByTileCoords(Vec2(iX, yT));
-	idB = getIdByTileCoords(Vec2(iX, yB));
+	idL = getIdByTileCoords(xL, iY);
+	idR = getIdByTileCoords(xR, iY);
+	idT = getIdByTileCoords(iX, yT);
+	idB = getIdByTileCoords(iX, yB);
 	
 	dencityL = _countMapData[idL];
 	dencityR = _countMapData[idR];
@@ -74,7 +74,7 @@ void GradientMap::recalculateGradientAt(Vec2 coords)
 	_vecMap[id] = Vec2(resultX, resultY);
 }
 
-bool GradientMap::recalculateGradient()
+/*bool GradientMap::recalculateGradient()
 {
 	static int xL, xR, yB, yT, idL, idR, idT, idB, id, dencityL, dencityR, dencityT, dencityB, dencityC, resultX, resultY;
 	
@@ -113,7 +113,7 @@ bool GradientMap::recalculateGradient()
 		}
 	}
 	return true;
-}
+}*/
 
 Vec2 GradientMap::getVecByTileID(int tileID) const
 {

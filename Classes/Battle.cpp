@@ -140,9 +140,9 @@ void Battle::update(float delta)
 	
 	ParticleHandlingSystem * phs = (ParticleHandlingSystem*)sysManager->getSystem<ParticleHandlingSystem>();
 	phs->preProcess();
-	auto t41 = std::chrono::high_resolution_clock::now();
+	//auto t41 = std::chrono::high_resolution_clock::now();
 	phs->process();
-	auto t42 = std::chrono::high_resolution_clock::now();
+	//auto t42 = std::chrono::high_resolution_clock::now();
 	phs->postProcess();
 	
 	//auto t50 = std::chrono::high_resolution_clock::now();

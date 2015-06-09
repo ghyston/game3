@@ -35,6 +35,11 @@ void BaseMap::initWithMap(const BaseMap * otherMap)
 				 otherMap->getTileSize());
 }
 
+int BaseMap::getIdByTileCoords(int tileCoordsX, int tileCoordsY) const
+{
+	return tileCoordsY * _mapSizeX + tileCoordsX;
+}
+
 int BaseMap::getIdByTileCoords(Vec2 tileCoords) const
 {
 	return tileCoords.y * _mapSizeX + tileCoords.x;
