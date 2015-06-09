@@ -150,7 +150,7 @@ void GameScene::onCountMapLoaded(EventCustom * event)
 	CountMap * cm = (CountMap *)(event->getUserData());
 	
 	Size mapSize(cm->getMapSizeX(), cm->getMapSizeY());
-	_spriteData = cm->getData();
+	_spriteData = cm->getDataAsGLubyte();
 	ArraySprite * as = ArraySprite::create(mapSize, _spriteData);
 	setArraySprite(as);
 	as->setAnchorPoint(Vec2(0, 0));

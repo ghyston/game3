@@ -26,6 +26,11 @@ void GradientCalcSystem::initialize()
 	particleMapper.init(*world);
 }
 
+void GradientCalcSystem::begin()
+{
+	_gradientMap->clearGrids();
+}
+
 void GradientCalcSystem::processEntity(artemis::Entity &e)
 {
 	PositionComponent * posCmpt = positionMapper.get(e);

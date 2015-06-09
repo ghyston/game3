@@ -19,21 +19,20 @@
 
 using namespace cocos2d;
 
-class ParticleHandlingSystem : public artemis::EntityProcessingSystem
+class ParticleCountSystem : public artemis::EntityProcessingSystem
 {
 public:
-	ParticleHandlingSystem();
-	virtual ~ParticleHandlingSystem();
+	ParticleCountSystem();
+	virtual ~ParticleCountSystem();
 	
 	virtual void initialize();
 	
-	void preProcess(); //@todo: chenge it to begin/end!
-	void postProcess();
-	
+	virtual void begin();
+	virtual void end();
+		
 	virtual void processEntity(artemis::Entity &e);
 	
 	CountMap * _countMap;
-	GradientMap * _gradientMap;
 	
 private:
 	

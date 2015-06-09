@@ -37,7 +37,7 @@ public:
 		}
 	}
 	
-	void recalculateGradientAt(Vec2 coords);
+	void recalculateGradientAt(Vec2& coords);
 	//bool recalculateGradient();
 	Vec2 getVecByTileID(int tileID) const;
 	void clearGrids();
@@ -52,7 +52,7 @@ private:
 
 	MemoryGrid<Vec2> _vecMap;
 	
-	const GLubyte * _countMapData;
+	const PixelRGBA * _countMapData;
 	
 };
 

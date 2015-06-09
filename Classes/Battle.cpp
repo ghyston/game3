@@ -20,7 +20,7 @@
 
 #include "MoveSystem.h"
 #include "BezierMoveSystem.h"
-#include "ParticleHandlingSystem.h"
+#include "ParticleCountSystem.h"
 #include "ParticleMoveSystem.h"
 #include "GradientCalcSystem.h"
 
@@ -50,7 +50,7 @@ bool Battle::init()
 	// init ECS
 	SystemManager * sysManager =  _world.getSystemManager();
 	ParticleMoveSystem * pms = new ParticleMoveSystem();
-	ParticleHandlingSystem * phs = new ParticleHandlingSystem();
+	ParticleCountSystem * phs = new ParticleCountSystem();
 	GradientCalcSystem * gcs = new GradientCalcSystem();
 	sysManager->setSystem(new MoveSystem());
 	sysManager->setSystem(pms);
@@ -61,15 +61,13 @@ bool Battle::init()
 
 	createMaps();
 	
-	for (int i = 0; i < 10000; i++)
+	for (int i = 0; i < 1000; i++)
 		EntityFabric::createParticle(_world, getParticleMap());
 	
 	pms->_gameMap = getGameMap();
-//	pms->_particleMap = getParticleMap();
 	pms->_gradientMap = getGradientMap();
 	pms->_countMap = getCountMap();
 	phs->_countMap = getCountMap();
-	phs->_gradientMap = getGradientMap();
 	gcs->_gradientMap = getGradientMap();
 		
 	return true;
@@ -116,34 +114,20 @@ void Battle::update(float delta)
 	
 	SystemManager * sysManager =  _world.getSystemManager();
 	
-	//auto t0 = std::chrono::high_resolution_clock::now();
-	
 	ParticleMoveSystem * pms = (ParticleMoveSystem*)sysManager->getSystem<ParticleMoveSystem>();
 	pms->process();
-	
-	//auto t10 = std::chrono::high_resolution_clock::now();
 	
 	MoveSystem* ms = (MoveSystem*)sysManager->getSystem<MoveSystem>();
 	ms->process();
 	
-	//auto t20 = std::chrono::high_resolution_clock::now();
-	
 	BezierMoveSystem* bms = (BezierMoveSystem*)sysManager->getSystem<BezierMoveSystem>();
 	bms->process();
 	
-	//auto t30 = std::chrono::high_resolution_clock::now();
+	ParticleCountSystem * phs = (ParticleCountSystem*)sysManager->getSystem<ParticleCountSystem>();
+	phs->process();
 	
 	GradientCalcSystem * gcs = (GradientCalcSystem*)sysManager->getSystem<GradientCalcSystem>();
 	gcs->process();
-	
-	//auto t40 = std::chrono::high_resolution_clock::now();
-	
-	ParticleHandlingSystem * phs = (ParticleHandlingSystem*)sysManager->getSystem<ParticleHandlingSystem>();
-	phs->preProcess();
-	//auto t41 = std::chrono::high_resolution_clock::now();
-	phs->process();
-	//auto t42 = std::chrono::high_resolution_clock::now();
-	phs->postProcess();
 	
 	//auto t50 = std::chrono::high_resolution_clock::now();
 	

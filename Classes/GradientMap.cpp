@@ -21,7 +21,7 @@ GradientMap::~GradientMap()
 bool GradientMap::initWithParams(CountMap * countMap)
 {
 	initWithMap(countMap);
-	_countMapData = countMap->getData();
+	_countMapData = countMap->getDataAsPixels();
 	
 	_vecMap.create(this);
 	clearGrids();
@@ -33,7 +33,7 @@ void GradientMap::clearGrids()
 	_vecMap.clear();
 }
 
-void GradientMap::recalculateGradientAt(Vec2 coords)
+void GradientMap::recalculateGradientAt(Vec2& coords)
 {
 	static int xL, xR, yB, yT, idL, idR, idT, idB, id, dencityL, dencityR, dencityT, dencityB, dencityC, resultX, resultY;
 	
@@ -55,11 +55,11 @@ void GradientMap::recalculateGradientAt(Vec2 coords)
 	idT = getIdByTileCoords(iX, yT);
 	idB = getIdByTileCoords(iX, yB);
 	
-	dencityL = _countMapData[idL];
-	dencityR = _countMapData[idR];
-	dencityT = _countMapData[idT];
-	dencityB = _countMapData[idB];
-	dencityC = _countMapData[id];
+	dencityL = _countMapData[idL].r;
+	dencityR = _countMapData[idR].r;
+	dencityT = _countMapData[idT].r;
+	dencityB = _countMapData[idB].r;
+	dencityC = _countMapData[id].r;
 	
 	resultX = dencityL - dencityR;
 	resultY = dencityT - dencityB;

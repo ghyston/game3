@@ -18,8 +18,8 @@
 		3F19EFB91B1B3ACF0093496F /* CountMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFB61B1B3ACF0093496F /* CountMap.cpp */; };
 		3F19EFBC1B1B46F80093496F /* GradientMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFBA1B1B46F80093496F /* GradientMap.cpp */; };
 		3F19EFBD1B1B46F80093496F /* GradientMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFBA1B1B46F80093496F /* GradientMap.cpp */; };
-		3F19EFC01B1B53FB0093496F /* ParticleHandlingSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFBE1B1B53FB0093496F /* ParticleHandlingSystem.cpp */; };
-		3F19EFC11B1B53FB0093496F /* ParticleHandlingSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFBE1B1B53FB0093496F /* ParticleHandlingSystem.cpp */; };
+		3F19EFC01B1B53FB0093496F /* ParticleCountSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFBE1B1B53FB0093496F /* ParticleCountSystem.cpp */; };
+		3F19EFC11B1B53FB0093496F /* ParticleCountSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFBE1B1B53FB0093496F /* ParticleCountSystem.cpp */; };
 		3F19EFC51B1CF6EF0093496F /* CommonMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFC31B1CF6EF0093496F /* CommonMap.cpp */; };
 		3F19EFC61B1CF6F00093496F /* CommonMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFC31B1CF6EF0093496F /* CommonMap.cpp */; };
 		3F19EFCE1B1E5E7F0093496F /* ParticleMoveSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFCC1B1E5E7F0093496F /* ParticleMoveSystem.cpp */; };
@@ -155,8 +155,8 @@
 		3F19EFB71B1B3ACF0093496F /* CountMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountMap.h; sourceTree = "<group>"; };
 		3F19EFBA1B1B46F80093496F /* GradientMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GradientMap.cpp; sourceTree = "<group>"; };
 		3F19EFBB1B1B46F80093496F /* GradientMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientMap.h; sourceTree = "<group>"; };
-		3F19EFBE1B1B53FB0093496F /* ParticleHandlingSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleHandlingSystem.cpp; sourceTree = "<group>"; };
-		3F19EFBF1B1B53FB0093496F /* ParticleHandlingSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleHandlingSystem.h; sourceTree = "<group>"; };
+		3F19EFBE1B1B53FB0093496F /* ParticleCountSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleCountSystem.cpp; sourceTree = "<group>"; };
+		3F19EFBF1B1B53FB0093496F /* ParticleCountSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleCountSystem.h; sourceTree = "<group>"; };
 		3F19EFC31B1CF6EF0093496F /* CommonMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommonMap.cpp; sourceTree = "<group>"; };
 		3F19EFC41B1CF6EF0093496F /* CommonMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonMap.h; sourceTree = "<group>"; };
 		3F19EFC81B1D08A40093496F /* MemoryGrid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryGrid.h; sourceTree = "<group>"; };
@@ -422,8 +422,8 @@
 				3FE45BCC1ADC5BB30096C53C /* MoveSystem.h */,
 				3F59F6021AE3CBCE009AD13F /* BezierMoveSystem.cpp */,
 				3F59F6031AE3CBCE009AD13F /* BezierMoveSystem.h */,
-				3F19EFBE1B1B53FB0093496F /* ParticleHandlingSystem.cpp */,
-				3F19EFBF1B1B53FB0093496F /* ParticleHandlingSystem.h */,
+				3F19EFBE1B1B53FB0093496F /* ParticleCountSystem.cpp */,
+				3F19EFBF1B1B53FB0093496F /* ParticleCountSystem.h */,
 				3F19EFCC1B1E5E7F0093496F /* ParticleMoveSystem.cpp */,
 				3F19EFCD1B1E5E7F0093496F /* ParticleMoveSystem.h */,
 				3F19EFD01B1FA97E0093496F /* GradientCalcSystem.cpp */,
@@ -685,7 +685,7 @@
 				3F19EFB81B1B3ACF0093496F /* CountMap.cpp in Sources */,
 				3FE45BD21ADC61FC0096C53C /* EntityFabric.cpp in Sources */,
 				3F59F6971AF64AFF009AD13F /* DebugWaveLayer.cpp in Sources */,
-				3F19EFC01B1B53FB0093496F /* ParticleHandlingSystem.cpp in Sources */,
+				3F19EFC01B1B53FB0093496F /* ParticleCountSystem.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				3F1D032F1ADA8644002ADC36 /* Battle.cpp in Sources */,
 				3F941D831AFBF52C0032E7B0 /* ArraySprite.cpp in Sources */,
@@ -718,7 +718,7 @@
 				3F19EFCF1B1E5E7F0093496F /* ParticleMoveSystem.cpp in Sources */,
 				3F1D03301ADA8644002ADC36 /* Battle.cpp in Sources */,
 				3FAC2E271AD7209900A729AA /* GameScene.cpp in Sources */,
-				3F19EFC11B1B53FB0093496F /* ParticleHandlingSystem.cpp in Sources */,
+				3F19EFC11B1B53FB0093496F /* ParticleCountSystem.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
 				3FE45BCE1ADC5BB30096C53C /* MoveSystem.cpp in Sources */,
 				3FE45BD31ADC61FC0096C53C /* EntityFabric.cpp in Sources */,

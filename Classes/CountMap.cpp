@@ -8,6 +8,8 @@
 
 #include "CountMap.h"
 
+const int CountMap::MAX_COUNT_PER_CELL = 5;
+
 CountMap::CountMap()
 {
 }
@@ -28,24 +30,31 @@ void CountMap::clean()
 	_countData.clear();
 }
 
-const GLubyte * CountMap::getData()
+const GLubyte * CountMap::getDataAsGLubyte()
 {
 	return (GLubyte*)_countData.getData();
 }
 
-void CountMap::incCountR(Vec2 point)
+const PixelRGBA * CountMap::getDataAsPixels()
+{
+	return _countData.getData();
+}
+
+void CountMap::incCountR(Vec2& point)
 {
 	int id = getIdByTileCoords(point);
-	if (_countData[id].r < 15) {
+	if (_countData[id].r < MAX_COUNT_PER_CELL) {
 		_countData[id].r++;
 	}
 }
 
 void CountMap::resetAlpha()
 {
+	static float multiplyer = 255.0 / MAX_COUNT_PER_CELL;
+	
 	for (int i = 0; i < _mapSizeX * _mapSizeY; i++)
 	{
-		_countData[i].r = _countData[i].r * 17;
+		_countData[i].r = _countData[i].r * multiplyer;
 		if(_countData[i].r > 0)
 			_countData[i].a = _countData[i].r; //set alpha equal to red (should be on shader)
 	}

@@ -26,6 +26,8 @@ public:
 	GradientCalcSystem();
 	virtual ~GradientCalcSystem();
 	
+	virtual void begin();
+	
 	virtual void initialize();
 	
 	virtual void processEntity(artemis::Entity &e);

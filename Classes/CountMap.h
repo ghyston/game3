@@ -37,11 +37,14 @@ public:
 	}
 	
 	void clean();
-	const GLubyte * getData();
-	void incCountR(Vec2 point);
+	const GLubyte * getDataAsGLubyte();
+	const PixelRGBA * getDataAsPixels();
+	void incCountR(Vec2& point);
 	void resetAlpha();
 		
 private:
+	
+	static const int MAX_COUNT_PER_CELL;
 	
 	void init(Size mapSize, Size tileSize);
 	
