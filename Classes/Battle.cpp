@@ -109,6 +109,8 @@ void Battle::createMaps()
 
 void Battle::update(float delta)
 {
+	delta = MIN(0.03, delta);
+	
 	_world.setDelta(delta);
 	_world.loopStart();
 	

@@ -38,7 +38,7 @@ public:
 	}
 	
 	Vec2 getCollisionVecByTileID(int tileID) const;
-	bool isCollidable(Vec2 coords) const;
+	bool isCollidable(const Vec2& coords) const;
 	bool isCollidable(int tileID) const;
 	
 private:

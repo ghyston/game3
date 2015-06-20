@@ -27,7 +27,7 @@ bool GameMap::initWithTmxMap(TMXTiledMap * tmxMap)
 	
 	initMemoryVariables(tmxMap);
 	initIsCollidableGrid(tmxMap);
-	initCollisionVecGrid();
+	//initCollisionVecGrid();
 	return true;
 }
 
@@ -58,10 +58,19 @@ void GameMap::initIsCollidableGrid(TMXTiledMap * tmxMap)
 			
 			int val = (valMap["collidable"].asString().compare("0")) ? 1 : 0;
 			_isCollidable.set(isCollidableID, val);
+			
+			// Init collision vec grid
+			Vec2 collision(0, 0);
+			if(val == 1)
+			{
+				collision.x = valMap["borderX"].asFloat();
+				collision.y = valMap["borderY"].asFloat();
+			}
+			_collisionVecMap.set(isCollidableID, collision);
 		}
 	}
 }
-
+/*
 void GameMap::initCollisionVecGrid()
 {
 	for(int iX = 0; iX < _mapSizeX; iX++)
@@ -143,7 +152,7 @@ void GameMap::initCollisionVecGrid()
 			_collisionVecMap[id].normalize();
 		}
 	}
-}
+}*/
 
 //@todo: test, would it be faster, if all this functions will be inlined!
 Vec2 GameMap::getCollisionVecByTileID(int tileID) const
@@ -151,7 +160,7 @@ Vec2 GameMap::getCollisionVecByTileID(int tileID) const
 	return _collisionVecMap[tileID];
 }
 
-bool GameMap::isCollidable(Vec2 coords) const
+bool GameMap::isCollidable(const Vec2& coords) const
 {
 	return isCollidable(getIdByTileCoords(coords));
 }

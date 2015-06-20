@@ -88,7 +88,7 @@ int EntityFabric::createParticle(World& world, ParticleMap * map)
 //	Sprite * sprite = Sprite::create("energy_sprite.png");
 //	renderCmp->_sprite = sprite;
 	
-	posCmp->_pos = Vec2(300 + rand() % 200, 300 + rand() % 200);
+	posCmp->_pos = Vec2(100 + rand() % 300, 110 + rand() % 330);
 	
 /*	EventCustom * event = new EventCustom("NEW_TOWER_SPRITE");
 	event->autorelease();

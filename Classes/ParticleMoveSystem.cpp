@@ -37,11 +37,25 @@ void ParticleMoveSystem::processEntity(artemis::Entity &e)
 	Vec2 tileCoords = _gameMap->getTileCoordsByPos(posCmpt->_pos);
 	int tileID = _gameMap->getIdByTileCoords(tileCoords);
 	
+	//Calculate collision
+	{
+		Vec2 collisionVelocity = _gameMap->getCollisionVecByTileID(tileID);
+		if((movCmp->_speed.x * collisionVelocity.x) < 0)
+		{
+			movCmp->_speed.x *= -1;
+		}
+		
+		if((movCmp->_speed.y * collisionVelocity.y) < 0)
+		{
+			movCmp->_speed.y *= -1;
+		}
+	}
+	
 	
 	Vec2 tileVelocity = 100 * particleCmp->_map->getVecByTileID(tileID);
-	Vec2 collisionVelocity = 100 * _gameMap->getCollisionVecByTileID(tileID);
+	//Vec2 collisionVelocity = 100 * _gameMap->getCollisionVecByTileID(tileID);
 	
-	Vec2 steeringForce = tileVelocity + collisionVelocity;
+	Vec2 steeringForce = tileVelocity;// + collisionVelocity;
 	float steerLength = steeringForce.length();
 	
 	const float MAX_FORCE = 50.0f;

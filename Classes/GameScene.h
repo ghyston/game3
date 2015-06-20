@@ -48,10 +48,15 @@ private:
 	Battle _battle;
 	bool _touched;
 	
+	void createArmySwitcher();
+	void onSwitchArmy(Ref * pObj);
+	
 	CC_SYNTHESIZE_RETAIN(TMXTiledMap *, _tiledMap, TiledMap);
 	CC_SYNTHESIZE_RETAIN(DebugWaveLayer *, _debugLayer, DebugLayer);
 	CC_SYNTHESIZE_RETAIN(DebugVecLayer *, _debugVecLayer, DebugVecLayer);
 	CC_SYNTHESIZE_RETAIN(ArraySprite *, _arraySprite, ArraySprite);
+	
+	CC_SYNTHESIZE_RETAIN(Menu *, _armySwitcher, ArmySwitcher);
 	
 	const GLubyte * _spriteData;
 	//@todo: jft, remove!

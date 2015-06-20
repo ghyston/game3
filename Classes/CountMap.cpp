@@ -56,6 +56,6 @@ void CountMap::resetAlpha()
 	{
 		_countData[i].r = _countData[i].r * multiplyer;
 		if(_countData[i].r > 0)
-			_countData[i].a = _countData[i].r; //set alpha equal to red (should be on shader)
+		_countData[i].a = 255;//_countData[i].r; //set alpha equal to red (should be on shader)
 	}
 }

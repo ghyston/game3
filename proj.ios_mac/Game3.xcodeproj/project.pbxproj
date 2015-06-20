@@ -436,6 +436,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3F25B52B1B35A87900F6EF0A /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				3F59F6951AF64AFF009AD13F /* DebugWaveLayer.cpp */,
+				3F59F6961AF64AFF009AD13F /* DebugWaveLayer.h */,
+				3F59F69C1AF807C5009AD13F /* DebugVecLayer.cpp */,
+				3F59F69D1AF807C5009AD13F /* DebugVecLayer.h */,
+			);
+			name = Layers;
+			sourceTree = "<group>";
+		};
 		3FE45BC01ADC52200096C53C /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,19 +501,16 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				3F25B52B1B35A87900F6EF0A /* Layers */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
 				3FAC2E241AD7209900A729AA /* GameScene.cpp */,
 				3FAC2E251AD7209900A729AA /* GameScene.h */,
-				3F1D03311ADA86D6002ADC36 /* Gameplay */,
-				3F59F6951AF64AFF009AD13F /* DebugWaveLayer.cpp */,
-				3F59F6961AF64AFF009AD13F /* DebugWaveLayer.h */,
-				3F59F69C1AF807C5009AD13F /* DebugVecLayer.cpp */,
-				3F59F69D1AF807C5009AD13F /* DebugVecLayer.h */,
 				3F941D811AFBF52C0032E7B0 /* ArraySprite.cpp */,
 				3F941D821AFBF52C0032E7B0 /* ArraySprite.h */,
+				3F1D03311ADA86D6002ADC36 /* Gameplay */,
 				3F1D9ADA1B0A7EC600AF2FE3 /* MyMacroses.h */,
 			);
 			name = Classes;

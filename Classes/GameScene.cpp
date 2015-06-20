@@ -16,6 +16,7 @@ GameScene::GameScene()
 	_debugLayer = NULL;
 	_debugVecLayer = NULL;
 	_arraySprite = NULL;
+	_armySwitcher = NULL;
 }
 
 GameScene::~GameScene()
@@ -24,6 +25,7 @@ GameScene::~GameScene()
 	setDebugLayer(NULL);
 	setDebugVecLayer(NULL);
 	setArraySprite(NULL);
+	setArmySwitcher(NULL);
 }
 
 bool GameScene::init()
@@ -58,8 +60,25 @@ bool GameScene::init()
 	
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(touchListener, this);
 	
+	createArmySwitcher();
 	
 	return true;
+}
+
+void GameScene::createArmySwitcher()
+{
+	MenuItemImage * mii1 = MenuItemImage::create("CloseNormal.png", "CloseSelected.png", CC_CALLBACK_1(GameScene::onSwitchArmy, this));
+	MenuItemImage * mii2 = MenuItemImage::create("CloseNormal.png", "CloseSelected.png", CC_CALLBACK_1(GameScene::onSwitchArmy, this));
+	Menu * menu = Menu::create(mii1, mii2, NULL);
+	mii2->setPositionY(40); //@todo: const positions?!
+	menu->setPosition(Vec2(50, 100));
+	setArmySwitcher(menu);
+	addChild(menu);
+}
+
+void GameScene::onSwitchArmy(Ref * pObj)
+{
+	CCLOG("GameScene::onSwitchArmy");
 }
 
 bool GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)
