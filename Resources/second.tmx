@@ -4,61 +4,85 @@
   <image source="mapTileset.png" width="128" height="128"/>
   <tile id="0">
    <properties>
+    <property name="borderX" value="-1"/>
+    <property name="borderY" value="-1"/>
     <property name="collidable" value="1"/>
    </properties>
   </tile>
   <tile id="1">
    <properties>
+    <property name="borderX" value="1"/>
+    <property name="borderY" value="-1"/>
     <property name="collidable" value="1"/>
    </properties>
   </tile>
   <tile id="2">
    <properties>
+    <property name="borderX" value="-1"/>
+    <property name="borderY" value="1"/>
     <property name="collidable" value="1"/>
    </properties>
   </tile>
   <tile id="3">
    <properties>
+    <property name="borderX" value="1"/>
+    <property name="borderY" value="1"/>
     <property name="collidable" value="1"/>
    </properties>
   </tile>
   <tile id="4">
    <properties>
+    <property name="borderX" value="0"/>
+    <property name="borderY" value="1"/>
     <property name="collidable" value="1"/>
    </properties>
   </tile>
   <tile id="5">
    <properties>
+    <property name="borderX" value="1"/>
+    <property name="borderY" value="0"/>
     <property name="collidable" value="1"/>
    </properties>
   </tile>
   <tile id="6">
    <properties>
+    <property name="borderX" value="-1"/>
+    <property name="borderY" value="0"/>
     <property name="collidable" value="1"/>
    </properties>
   </tile>
   <tile id="7">
    <properties>
+    <property name="borderX" value="0"/>
+    <property name="borderY" value="-1"/>
     <property name="collidable" value="1"/>
    </properties>
   </tile>
   <tile id="8">
    <properties>
+    <property name="borderX" value="-1"/>
+    <property name="borderY" value="-1"/>
     <property name="collidable" value="1"/>
    </properties>
   </tile>
   <tile id="9">
    <properties>
+    <property name="borderX" value="1"/>
+    <property name="borderY" value="-1"/>
     <property name="collidable" value="1"/>
    </properties>
   </tile>
   <tile id="10">
    <properties>
+    <property name="borderX" value="-1"/>
+    <property name="borderY" value="1"/>
     <property name="collidable" value="1"/>
    </properties>
   </tile>
   <tile id="11">
    <properties>
+    <property name="borderX" value="1"/>
+    <property name="borderY" value="1"/>
     <property name="collidable" value="1"/>
    </properties>
   </tile>
@@ -75,7 +99,7 @@
  </tileset>
  <layer name="Layer1" width="50" height="50">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA+2XORYDIQhATVLH+x831TQ+QZDdWFCMqPBl0emttX5FTb4bEu3zP3Boz12dmfS8T+EY98DGRt3lkK+XcHD94Oi5/WOnPlZzIZtUDoteSMkrqr1MHJI7RMqxy4Bx7NYAJ8e1GDJxaMdDyrnLIOXx4LBm4Niw4pDkEpfDqj48GaCerOWDh//aHFh8retOo1dB663qxbIOV+dnnXNVOUZ7lc4JslVtb0+BOLL1dAlbZY5qDNp3YAYOr75rnTuXIR+H5r5RHDM99M3l8HqLrMapfkRwUOK0GofWZ8s3Dgemf8bfThwWeYrFKaNAHJ8ADou8iriXTuGA7HJ6VRaOPrEr8aPie+dy5JfXIRxYjKL90GDIzDH7H8Ak2l8NDsp+P9wAsYIQJwAA
+   H4sIAAAAAAAAA+2Y2W7DIBBFaeNmaZz+/+cmlYpk3V5gNjCK/HBfsBnmMMOwPFJKj0PT6fOln530EcixF0OWdD5bzJqxLNyt8ax+7M2BNmpt+O3g0Mc+kgPXTIuj5Sf7VzoXlvWR25ZOHD3qHvY/CcebncPCEMVhZahxsP2ktodY12oEQ41D64uXozWmlsOad14Gb2xyX6xNkRy9GTS1qReHltOjvOZr3Jb1YYmXRyPqjWdNjOZg/0rslL55OaTjW2pGrzix/y5OjhF5+S4cOF4khzUfmQ1LHvfg2LbdX/oSalv7S3u3VJEc92S/K1gVwSGZE9TvPnxN/8/buV0qyTtXzddt3qzQhrFgvn3/9bkV2qXC/tL3OzbnS8H/zKD1LXp9eCVlwJqwCvpoODAfNG+umjjg2OdgDrR3E7JocwntLo6YSDha+Zfjt2Vg9cASE6sdLUcpBlgPSj60OC6VbxYOllvIkOduJXZLLDUO3FcjODILq/m4f5yFdtFPnBdNHdBwaHJcYleTUyM4WJywje3Zs3FYNRMHO6fjuatUNzUcrb3Jy1Hr751vac2N4GD1mHGw+ZyJg7EgRyknWmf30RzoE94xrOf3PTh66N052NlxZg6Wq6UzF+PI99UZhXfo2t360Bx6AjQ2Q6kQJwAA
   </data>
  </layer>
 </map>

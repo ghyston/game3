@@ -54,9 +54,9 @@ void ParticleMoveSystem::processEntity(artemis::Entity &e)
 	int countTileId = _gradientMap->getIdByTileCoords(countTileCoords);
 	Vec2 gradForce = _gradientMap->getVecByTileID(countTileId);
 	float gradLength = gradForce.length();
-	if(gradLength >= MAX_FORCE)
+	if(gradLength >= MAX_FORCE * 2)
 	{
-		gradForce.scale(MAX_FORCE / gradLength);
+		gradForce.scale(MAX_FORCE * 2 / gradLength);
 	}
 	
 	movCmp->_speed = movCmp->_speed + steeringForce + gradForce;

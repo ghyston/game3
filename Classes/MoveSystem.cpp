@@ -43,12 +43,12 @@ void MoveSystem::processEntity(artemis::Entity &e)
 	posCmpt->_pos.y += movCmp->_speed.y * world->getDelta();
 	
 	// update render component
-	RenderComponent * rc = dynamic_cast<RenderComponent *>(e.getComponent<RenderComponent>());
+	/*RenderComponent * rc = dynamic_cast<RenderComponent *>(e.getComponent<RenderComponent>());
 	if(rc == NULL)
 		return;
 	
 	if(rc->_sprite == NULL)
 		return;
 		
-	rc->_sprite->setPosition(positionMapper.get(e)->_pos);
+	rc->_sprite->setPosition(positionMapper.get(e)->_pos);*/
 };

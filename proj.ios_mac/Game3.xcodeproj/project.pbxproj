@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
-		1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
-		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		3EACC98F19EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		3EACC99019EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
@@ -26,12 +24,17 @@
 		3F19EFCF1B1E5E7F0093496F /* ParticleMoveSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFCC1B1E5E7F0093496F /* ParticleMoveSystem.cpp */; };
 		3F19EFD21B1FA97E0093496F /* GradientCalcSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFD01B1FA97E0093496F /* GradientCalcSystem.cpp */; };
 		3F19EFD31B1FA97E0093496F /* GradientCalcSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F19EFD01B1FA97E0093496F /* GradientCalcSystem.cpp */; };
-		3F1D03281AD9DA01002ADC36 /* Artemis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1D03271AD9DA01002ADC36 /* Artemis.framework */; };
 		3F1D032C1ADA793E002ADC36 /* Artemis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1D032B1ADA793E002ADC36 /* Artemis.framework */; };
 		3F1D032F1ADA8644002ADC36 /* Battle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D032D1ADA8644002ADC36 /* Battle.cpp */; };
 		3F1D03301ADA8644002ADC36 /* Battle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D032D1ADA8644002ADC36 /* Battle.cpp */; };
 		3F1D9AD91B0A71AE00AF2FE3 /* ParticleMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D9AD71B0A71AD00AF2FE3 /* ParticleMap.cpp */; };
 		3F1D9ADB1B0A89BE00AF2FE3 /* ParticleMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F1D9AD71B0A71AD00AF2FE3 /* ParticleMap.cpp */; };
+		3F25B4E01B278CB000F6EF0A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F25B4DF1B278CB000F6EF0A /* OpenGLES.framework */; };
+		3F25B4E21B355FB700F6EF0A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F25B4E11B355FB700F6EF0A /* CoreMotion.framework */; };
+		3F25B4E41B355FC900F6EF0A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F25B4E31B355FC900F6EF0A /* Security.framework */; };
+		3F25B4EA1B35622000F6EF0A /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F25B4E91B35622000F6EF0A /* libcocos2d iOS.a */; };
+		3F25B5231B356FE400F6EF0A /* libArtemis_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F25B5221B356FE400F6EF0A /* libArtemis_ios.a */; };
+		3F25B5261B35730700F6EF0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F25B5251B35730700F6EF0A /* UIKit.framework */; };
 		3F59F5FC1AE3C8B6009AD13F /* ship.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F59F5FB1AE3C8B6009AD13F /* ship.png */; };
 		3F59F5FD1AE3C8B6009AD13F /* ship.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F59F5FB1AE3C8B6009AD13F /* ship.png */; };
 		3F59F6041AE3CBCE009AD13F /* BezierMoveSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3F59F6021AE3CBCE009AD13F /* BezierMoveSystem.cpp */; };
@@ -102,14 +105,11 @@
 		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
-		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
-		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
-		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,12 +134,26 @@
 			remoteGlobalIDString = 1551A33E158F2AB200E66CFE;
 			remoteInfo = "cocos2dx Mac";
 		};
-		1AC6FB24180E99E1004C840B /* PBXContainerItemProxy */ = {
+		3F25B4E51B35605F00F6EF0A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = A07A4C241783777C0073F6A7;
-			remoteInfo = "cocos2dx iOS";
+			remoteInfo = "libcocos2d iOS";
+		};
+		3F25B51A1B35661C00F6EF0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F25B5151B35661B00F6EF0A /* Artemis.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 22DDD8BD17FDB98F00751412;
+			remoteInfo = Artemis;
+		};
+		3F25B51C1B35661C00F6EF0A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3F25B5151B35661B00F6EF0A /* Artemis.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3F25B4F01B3563D700F6EF0A;
+			remoteInfo = Artemis_ios;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -172,6 +186,13 @@
 		3F1D9AD71B0A71AD00AF2FE3 /* ParticleMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParticleMap.cpp; sourceTree = "<group>"; };
 		3F1D9AD81B0A71AE00AF2FE3 /* ParticleMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleMap.h; sourceTree = "<group>"; };
 		3F1D9ADA1B0A7EC600AF2FE3 /* MyMacroses.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMacroses.h; sourceTree = "<group>"; };
+		3F25B4DF1B278CB000F6EF0A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
+		3F25B4E11B355FB700F6EF0A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		3F25B4E31B355FC900F6EF0A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		3F25B4E91B35622000F6EF0A /* libcocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d iOS.a"; path = "../../../libcocos2d iOS.a"; sourceTree = "<group>"; };
+		3F25B5151B35661B00F6EF0A /* Artemis.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Artemis.xcodeproj; path = "../../_tools/Artemis-Cpp/XCode/Artemis/Artemis.xcodeproj"; sourceTree = "<group>"; };
+		3F25B5221B356FE400F6EF0A /* libArtemis_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libArtemis_ios.a; path = ../../../libArtemis_ios.a; sourceTree = "<group>"; };
+		3F25B5251B35730700F6EF0A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		3F59F5FB1AE3C8B6009AD13F /* ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship.png; sourceTree = "<group>"; };
 		3F59F5FF1AE3CA58009AD13F /* BezierMoveComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierMoveComponent.h; sourceTree = "<group>"; };
 		3F59F6021AE3CBCE009AD13F /* BezierMoveSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BezierMoveSystem.cpp; sourceTree = "<group>"; };
@@ -258,14 +279,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F1D03281AD9DA01002ADC36 /* Artemis.framework in Frameworks */,
-				52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */,
-				1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */,
-				D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */,
+				3F25B5261B35730700F6EF0A /* UIKit.framework in Frameworks */,
+				3F25B5231B356FE400F6EF0A /* libArtemis_ios.a in Frameworks */,
+				3F25B4EA1B35622000F6EF0A /* libcocos2d iOS.a in Frameworks */,
+				3F25B4E41B355FC900F6EF0A /* Security.framework in Frameworks */,
+				3F25B4E21B355FB700F6EF0A /* CoreMotion.framework in Frameworks */,
+				3F25B4E01B278CB000F6EF0A /* OpenGLES.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
-				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
-				BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */,
 				BF1712471292920000B8313A /* libz.dylib in Frameworks */,
 				BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */,
 				D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */,
@@ -331,9 +352,10 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
+				3F25B5151B35661B00F6EF0A /* Artemis.xcodeproj */,
 				46880B8319C43A87006E1F66 /* Classes */,
 				46880B7519C43A67006E1F66 /* Resources */,
-				1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				080E96DDFE201D6D7F000001 /* ios */,
 				503AE10617EB990700D1A890 /* mac */,
@@ -345,6 +367,12 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3F25B5251B35730700F6EF0A /* UIKit.framework */,
+				3F25B5221B356FE400F6EF0A /* libArtemis_ios.a */,
+				3F25B4E91B35622000F6EF0A /* libcocos2d iOS.a */,
+				3F25B4E31B355FC900F6EF0A /* Security.framework */,
+				3F25B4E11B355FB700F6EF0A /* CoreMotion.framework */,
+				3F25B4DF1B278CB000F6EF0A /* OpenGLES.framework */,
 				3F1D032B1ADA793E002ADC36 /* Artemis.framework */,
 				3F1D03271AD9DA01002ADC36 /* Artemis.framework */,
 				52B47A461A53D09B004E4C60 /* Security.framework */,
@@ -397,6 +425,15 @@
 				3FE45BD11ADC61FC0096C53C /* EntityFabric.h */,
 			);
 			name = Gameplay;
+			sourceTree = "<group>";
+		};
+		3F25B5161B35661B00F6EF0A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3F25B51B1B35661C00F6EF0A /* Artemis.framework */,
+				3F25B51D1B35661C00F6EF0A /* libArtemis_ios.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		3FE45BC01ADC52200096C53C /* Components */ = {
@@ -533,7 +570,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				1AC6FB25180E99E1004C840B /* PBXTargetDependency */,
+				3F25B4E61B35605F00F6EF0A /* PBXTargetDependency */,
 			);
 			name = "Game3 iOS";
 			productName = iphone;
@@ -585,6 +622,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 3F25B5161B35661B00F6EF0A /* Products */;
+					ProjectRef = 3F25B5151B35661B00F6EF0A /* Artemis.xcodeproj */;
+				},
+				{
 					ProductGroup = 1AC6FAE6180E9839004C840B /* Products */;
 					ProjectRef = 1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */;
 				},
@@ -610,6 +651,20 @@
 			fileType = archive.ar;
 			path = "libcocos2d iOS.a";
 			remoteRef = 1AC6FB06180E9839004C840B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3F25B51B1B35661C00F6EF0A /* Artemis.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Artemis.framework;
+			remoteRef = 3F25B51A1B35661C00F6EF0A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3F25B51D1B35661C00F6EF0A /* libArtemis_ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libArtemis_ios.a;
+			remoteRef = 3F25B51C1B35661C00F6EF0A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -733,10 +788,10 @@
 			name = "cocos2dx Mac";
 			targetProxy = 1AC6FB15180E9959004C840B /* PBXContainerItemProxy */;
 		};
-		1AC6FB25180E99E1004C840B /* PBXTargetDependency */ = {
+		3F25B4E61B35605F00F6EF0A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "cocos2dx iOS";
-			targetProxy = 1AC6FB24180E99E1004C840B /* PBXContainerItemProxy */;
+			name = "libcocos2d iOS";
+			targetProxy = 3F25B4E51B35605F00F6EF0A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -769,7 +824,7 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = /Users/Hyston;
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
@@ -807,7 +862,7 @@
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = /Users/Hyston;
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
@@ -846,6 +901,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../cocos2d/cocos/platform/mac",
 					"$(SRCROOT)/../cocos2d/external/glfw3/include/mac",
+					"/Users/Hyston/projects/_tools/Artemis-Cpp/include",
 				);
 				INFOPLIST_FILE = mac/Info.plist;
 				LIBRARY_SEARCH_PATHS = "";
