@@ -40,6 +40,7 @@ public:
 	const GLubyte * getDataAsGLubyte();
 	const PixelRGBA * getDataAsPixels();
 	void incCountR(Vec2& point);
+	void incCountG(Vec2& point);
 	void resetAlpha();
 		
 private:

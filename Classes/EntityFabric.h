@@ -20,7 +20,7 @@ public:
 	
 	static void createTower(World& world);
 	static int createShip(World& world);
-	static int createParticle(World& world, ParticleMap * map);
+	static int createParticle(World& world, int armyId, ParticleMap * map);
 	
 private:
 	

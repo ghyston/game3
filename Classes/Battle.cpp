@@ -17,6 +17,7 @@
 #include "NodeComponent.h"
 #include "EnergyStorageComponent.h"
 #include "EnergyGeneratorComponent.h"
+#include "ArmyComponent.h"
 
 #include "MoveSystem.h"
 #include "BezierMoveSystem.h"
@@ -31,8 +32,10 @@
 Battle::Battle()
 {
 	_touchedShipId = -1;
+	_currentArmyChoosenId = ArmyIdEnum::RED;
 	_gameMap = NULL;
-	_particleMap = NULL;
+	_particleMap1 = NULL;
+	_particleMap2 = NULL;
 	_countMap = NULL;
 	_gradientMap = NULL;
 }
@@ -40,7 +43,8 @@ Battle::Battle()
 Battle::~Battle()
 {
 	setGameMap(NULL);
-	setParticleMap(NULL);
+	setParticleMap1(NULL);
+	setParticleMap2(NULL);
 	setCountMap(NULL);
 	setGradientMap(NULL);
 }
@@ -62,7 +66,10 @@ bool Battle::init()
 	createMaps();
 	
 	for (int i = 0; i < 1000; i++)
-		EntityFabric::createParticle(_world, getParticleMap());
+		EntityFabric::createParticle(_world, ArmyIdEnum::RED, getParticleMap1());
+	
+	for (int i = 0; i < 1000; i++)
+		EntityFabric::createParticle(_world, ArmyIdEnum::GREEN, getParticleMap2());
 	
 	pms->_gameMap = getGameMap();
 	pms->_gradientMap = getGradientMap();
@@ -81,7 +88,10 @@ void Battle::createMaps()
 	setGameMap(gameMap);
 	
 	ParticleMap * particleMap = ParticleMap::createWithParams(gameMap);
-	setParticleMap(particleMap);
+	setParticleMap1(particleMap);
+	
+	particleMap = ParticleMap::createWithParams(gameMap);
+	setParticleMap2(particleMap);
 	
 	EventCustom * event = new EventCustom("MAP_LOADED");
 	event->autorelease();
@@ -152,7 +162,11 @@ void Battle::update(float delta)
 void Battle::updateGoal(Vec2 coords)
 {
 	Vec2 goalPos = _gameMap->getTileCoordsByPos(coords);
-	getParticleMap()->recalculateGoal(goalPos);
+	
+	if(_currentArmyChoosenId == ArmyIdEnum::RED)
+		getParticleMap1()->recalculateGoal(goalPos);
+	else if (_currentArmyChoosenId == ArmyIdEnum::GREEN)
+		getParticleMap2()->recalculateGoal(goalPos);
 	
 	//@todo: think, how to update
 	// Upd debug layer
@@ -170,6 +184,12 @@ void Battle::updateGoal(Vec2 coords)
 
 }
 
+void Battle::chooseArmy(int armyId)
+{
+	_currentArmyChoosenId = armyId;
+}
+
+//@todo: ship?? Bezier movement?! We have different game here now!!!
 void Battle::startShipMoving(Vec2 newCoords)
 {
 	if(_touchedShipId == -1)

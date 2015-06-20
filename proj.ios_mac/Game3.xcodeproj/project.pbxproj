@@ -193,6 +193,7 @@
 		3F25B5151B35661B00F6EF0A /* Artemis.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Artemis.xcodeproj; path = "../../_tools/Artemis-Cpp/XCode/Artemis/Artemis.xcodeproj"; sourceTree = "<group>"; };
 		3F25B5221B356FE400F6EF0A /* libArtemis_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libArtemis_ios.a; path = ../../../libArtemis_ios.a; sourceTree = "<group>"; };
 		3F25B5251B35730700F6EF0A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		3F25B52C1B35C13400F6EF0A /* ArmyComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArmyComponent.h; sourceTree = "<group>"; };
 		3F59F5FB1AE3C8B6009AD13F /* ship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ship.png; sourceTree = "<group>"; };
 		3F59F5FF1AE3CA58009AD13F /* BezierMoveComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BezierMoveComponent.h; sourceTree = "<group>"; };
 		3F59F6021AE3CBCE009AD13F /* BezierMoveSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BezierMoveSystem.cpp; sourceTree = "<group>"; };
@@ -459,6 +460,7 @@
 				3FE45BCA1ADC58A70096C53C /* EnergyGeneratorComponent.h */,
 				3F59F5FF1AE3CA58009AD13F /* BezierMoveComponent.h */,
 				3F19EFCB1B1E5E0D0093496F /* ParticleComponent.h */,
+				3F25B52C1B35C13400F6EF0A /* ArmyComponent.h */,
 			);
 			name = Components;
 			sourceTree = "<group>";

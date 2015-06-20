@@ -35,6 +35,7 @@ public:
 	
 	void startShipMoving(Vec2 newCoords);
 	void updateGoal(Vec2 coords);
+	void chooseArmy(int armyId);
 	
 private:
 	
@@ -45,9 +46,12 @@ private:
 	void createMaps();
 	
 	CC_SYNTHESIZE_RETAIN(GameMap *, _gameMap, GameMap);
-	CC_SYNTHESIZE_RETAIN(ParticleMap *, _particleMap, ParticleMap);
+	CC_SYNTHESIZE_RETAIN(ParticleMap *, _particleMap1, ParticleMap1);
+	CC_SYNTHESIZE_RETAIN(ParticleMap *, _particleMap2, ParticleMap2);
 	CC_SYNTHESIZE_RETAIN(CountMap *, _countMap, CountMap);
 	CC_SYNTHESIZE_RETAIN(GradientMap *, _gradientMap, GradientMap);
+	
+	int _currentArmyChoosenId;
 };
 
 #endif /* defined(__Game3__Battle__) */

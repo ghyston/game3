@@ -13,6 +13,7 @@
 #include "cocos2d.h"
 
 #include "PositionComponent.h"
+#include "ArmyComponent.h"
 #include "CountMap.h"
 #include "GradientMap.h"
 
@@ -37,6 +38,7 @@ public:
 private:
 	
 	artemis::ComponentMapper<PositionComponent> positionMapper;
+	artemis::ComponentMapper<ArmyComponent> armyMapper;
 	
 };
 

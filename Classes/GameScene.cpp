@@ -68,7 +68,9 @@ bool GameScene::init()
 void GameScene::createArmySwitcher()
 {
 	MenuItemImage * mii1 = MenuItemImage::create("CloseNormal.png", "CloseSelected.png", CC_CALLBACK_1(GameScene::onSwitchArmy, this));
+	mii1->setTag(1); //@todo: ArmyIdEnum::RED
 	MenuItemImage * mii2 = MenuItemImage::create("CloseNormal.png", "CloseSelected.png", CC_CALLBACK_1(GameScene::onSwitchArmy, this));
+	mii2->setTag(2); //@todo: ArmyIdEnum::RED
 	Menu * menu = Menu::create(mii1, mii2, NULL);
 	mii2->setPositionY(40); //@todo: const positions?!
 	menu->setPosition(Vec2(50, 100));
@@ -78,7 +80,11 @@ void GameScene::createArmySwitcher()
 
 void GameScene::onSwitchArmy(Ref * pObj)
 {
-	CCLOG("GameScene::onSwitchArmy");
+	MenuItemImage * mii = dynamic_cast<MenuItemImage*>(pObj);
+	if(mii == NULL)
+		return;
+	
+	_battle.chooseArmy(mii->getTag());
 }
 
 bool GameScene::onTouchBegan(cocos2d::Touch*, cocos2d::Event*)
