@@ -40,12 +40,12 @@ int BaseMap::getIdByTileCoords(int tileCoordsX, int tileCoordsY) const
 	return tileCoordsY * _mapSizeX + tileCoordsX;
 }
 
-int BaseMap::getIdByTileCoords(Vec2 tileCoords) const
+int BaseMap::getIdByTileCoords(const Vec2& tileCoords) const
 {
 	return tileCoords.y * _mapSizeX + tileCoords.x;
 }
 
-Vec2 BaseMap::getTileCoordsByPos(Vec2 globalPosition) const
+Vec2 BaseMap::getTileCoordsByPos(const Vec2& globalPosition) const
 {
 	int x = globalPosition.x / _tileSize.width;
 	int y = ((_mapSizeY * _tileSize.height) - globalPosition.y) / _tileSize.height;

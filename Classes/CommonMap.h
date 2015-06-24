@@ -19,8 +19,8 @@ public:
 	void initWithMap(const BaseMap * otherMap);
 	
 	virtual int getIdByTileCoords(int tileCoordsX, int tileCoordsY) const;
-	virtual int getIdByTileCoords(Vec2 tileCoords) const;
-	virtual Vec2 getTileCoordsByPos(Vec2 globalPosition) const;
+	virtual int getIdByTileCoords(const Vec2& tileCoords) const;
+	virtual Vec2 getTileCoordsByPos(const Vec2& globalPosition) const;
 	
 protected:
 	

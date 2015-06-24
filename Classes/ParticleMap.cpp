@@ -123,7 +123,7 @@ void ParticleMap::calculateVecGrid()
 	}
 }
 
-bool ParticleMap::calculteHeatMapAtCell(Vec2 cell, int value)
+bool ParticleMap::calculteHeatMapAtCell(const Vec2& cell, int value)
 {
 	int id = getIdByTileCoords(cell);
 	

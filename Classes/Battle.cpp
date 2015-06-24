@@ -65,10 +65,10 @@ bool Battle::init()
 
 	createMaps();
 	
-	for (int i = 0; i < 1000; i++)
+	for (int i = 0; i < 5000; i++)
 		EntityFabric::createParticle(_world, ArmyIdEnum::RED, getParticleMap1());
 	
-	for (int i = 0; i < 1000; i++)
+	for (int i = 0; i < 5000; i++)
 		EntityFabric::createParticle(_world, ArmyIdEnum::GREEN, getParticleMap2());
 	
 	pms->_gameMap = getGameMap();

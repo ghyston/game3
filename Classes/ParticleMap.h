@@ -48,7 +48,7 @@ private:
 	void clearGrids();
 	void calculateHeatGrid(int goalCellId);
 	void calculateVecGrid();
-	bool calculteHeatMapAtCell(Vec2 cell, int value);
+	bool calculteHeatMapAtCell(const Vec2& cell, int value);
 	
 	ParticleMap();
 	

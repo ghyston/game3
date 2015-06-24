@@ -34,7 +34,7 @@ void GradientMap::clearGrids()
 }
 
 //@todo: most trickest part of calculation!
-void GradientMap::recalculateGradientAt(Vec2& coords)
+void GradientMap::recalculateGradientAt(const Vec2& coords)
 {
 	static int xL, xR, yB, yT, idL, idR, idT, idB, id, dencityL, dencityR, dencityT, dencityB, dencityC, resultX, resultY;
 	

@@ -62,7 +62,7 @@ void CountMap::resetAlpha()
 	
 	for (int i = 0; i < _mapSizeX * _mapSizeY; i++)
 	{
-		if(_countData[i].r > 0)
+		/*if(_countData[i].r > 0)
 		{
 			_countData[i].a = 255;
 			_countData[i].r = 255;
@@ -72,9 +72,9 @@ void CountMap::resetAlpha()
 		{
 			_countData[i].a = 255;
 			_countData[i].g = 255;
-		}
+		}*/
 		
-		/*_countData[i].r = _countData[i].r * multiplyer;
+		_countData[i].r = _countData[i].r * multiplyer;
 		_countData[i].g = _countData[i].g * multiplyer;
 		if((_countData[i].r > 0) || (_countData[i].g > 0)) //@todo: improve this check!
 		_countData[i].a = _countData[i].r + _countData[i].g; //set alpha equal to red (should be on shader)*/

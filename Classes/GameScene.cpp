@@ -68,9 +68,9 @@ bool GameScene::init()
 void GameScene::createArmySwitcher()
 {
 	MenuItemImage * mii1 = MenuItemImage::create("CloseNormal.png", "CloseSelected.png", CC_CALLBACK_1(GameScene::onSwitchArmy, this));
-	mii1->setTag(1); //@todo: ArmyIdEnum::RED
+	mii1->setTag(0); //@todo: ArmyIdEnum::RED
 	MenuItemImage * mii2 = MenuItemImage::create("CloseNormal.png", "CloseSelected.png", CC_CALLBACK_1(GameScene::onSwitchArmy, this));
-	mii2->setTag(2); //@todo: ArmyIdEnum::RED
+	mii2->setTag(1); //@todo: ArmyIdEnum::RED
 	Menu * menu = Menu::create(mii1, mii2, NULL);
 	mii2->setPositionY(40); //@todo: const positions?!
 	menu->setPosition(Vec2(50, 100));
