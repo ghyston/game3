@@ -65,10 +65,10 @@ bool Battle::init()
 
 	createMaps();
 	
-	for (int i = 0; i < 5000; i++)
+	for (int i = 0; i < 4000; i++)
 		EntityFabric::createParticle(_world, ArmyIdEnum::RED, getParticleMap1());
 	
-	for (int i = 0; i < 5000; i++)
+	for (int i = 0; i < 4000; i++)
 		EntityFabric::createParticle(_world, ArmyIdEnum::GREEN, getParticleMap2());
 	
 	pms->_gameMap = getGameMap();
@@ -82,7 +82,7 @@ bool Battle::init()
 
 void Battle::createMaps()
 {
-	TMXTiledMap * tmxMap = TMXTiledMap::create("second.tmx");
+	TMXTiledMap * tmxMap = TMXTiledMap::create("third.tmx");
 	
 	GameMap * gameMap = GameMap::createWithTmxMap(tmxMap);
 	setGameMap(gameMap);

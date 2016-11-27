@@ -50,6 +50,8 @@ private:
 	CC_SYNTHESIZE_RETAIN(ParticleMap *, _particleMap2, ParticleMap2);
 	CC_SYNTHESIZE_RETAIN(CountMap *, _countMap, CountMap);
 	CC_SYNTHESIZE_RETAIN(GradientMap *, _gradientMap, GradientMap);
+
+public: //@todo: remove!
 	
 	int _currentArmyChoosenId;
 };

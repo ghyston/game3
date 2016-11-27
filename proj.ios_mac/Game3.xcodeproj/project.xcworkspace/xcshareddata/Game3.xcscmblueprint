@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B8C0D5A2877B0984C89720F83B696B48D470C334",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B8C0D5A2877B0984C89720F83B696B48D470C334" : 0,
+    "5D7E8DD12601C13AA811F8F7E4B1E1F0FC3A20A9" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "AD72B42A-8F2B-4C75-A8C7-8B3B50623A05",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B8C0D5A2877B0984C89720F83B696B48D470C334" : "Game3\/",
+    "5D7E8DD12601C13AA811F8F7E4B1E1F0FC3A20A9" : "_tools\/Artemis-Cpp\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Game3",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "proj.ios_mac\/Game3.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/vinova\/Artemis-Cpp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5D7E8DD12601C13AA811F8F7E4B1E1F0FC3A20A9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ghyston\/game3.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B8C0D5A2877B0984C89720F83B696B48D470C334"
+    }
+  ]
+}

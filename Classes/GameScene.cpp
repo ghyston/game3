@@ -17,6 +17,8 @@ GameScene::GameScene()
 	_debugVecLayer = NULL;
 	_arraySprite = NULL;
 	_armySwitcher = NULL;
+	_targetRedSprite = NULL;
+	_targetGreenSprite = NULL;
 }
 
 GameScene::~GameScene()
@@ -26,12 +28,17 @@ GameScene::~GameScene()
 	setDebugVecLayer(NULL);
 	setArraySprite(NULL);
 	setArmySwitcher(NULL);
+	setTargetRedSprite(NULL);
+	setTargetGreenSprite(NULL);
 }
 
 bool GameScene::init()
 {
 	if(!Scene::init())
 		return false;
+	
+	//Camera * cam = getDefaultCamera();
+	
 	
 	_touched = false;
 	
@@ -67,12 +74,18 @@ bool GameScene::init()
 
 void GameScene::createArmySwitcher()
 {
-	MenuItemImage * mii1 = MenuItemImage::create("CloseNormal.png", "CloseSelected.png", CC_CALLBACK_1(GameScene::onSwitchArmy, this));
-	mii1->setTag(0); //@todo: ArmyIdEnum::RED
-	MenuItemImage * mii2 = MenuItemImage::create("CloseNormal.png", "CloseSelected.png", CC_CALLBACK_1(GameScene::onSwitchArmy, this));
+	MenuItemImage * mii2 = MenuItemImage::create("green_btn.png", "green_btn.png", CC_CALLBACK_1(GameScene::onSwitchArmy, this));
 	mii2->setTag(1); //@todo: ArmyIdEnum::RED
+	mii2->setAnchorPoint(Point(0, 0));
+	//mii2->setScale(2);
+	
+	MenuItemImage * mii1 = MenuItemImage::create("red_btn.png", "red_btn.png", CC_CALLBACK_1(GameScene::onSwitchArmy, this));
+	mii1->setTag(0); //@todo: ArmyIdEnum::RED
+	mii1->setAnchorPoint(Point(0, 0));
+	mii1->setPositionY(250); //@todo: const positions?!
+	//mii1->setScale(2);
+	
 	Menu * menu = Menu::create(mii1, mii2, NULL);
-	mii2->setPositionY(40); //@todo: const positions?!
 	menu->setPosition(Vec2(50, 100));
 	setArmySwitcher(menu);
 	addChild(menu);
@@ -101,7 +114,17 @@ void GameScene::onTouchEnded(cocos2d::Touch* t, cocos2d::Event* e)
 	Vec2 startLoc = t->getStartLocation();
 	
 	if((std::abs(startLoc.x - loc.x) < 10) && (std::abs(startLoc.y - loc.y) < 10))
-	   _battle.updateGoal(loc - getTiledMap()->getPosition());
+	{
+		Point touchPoint = getTiledMap()->convertTouchToNodeSpaceAR(t);
+		_battle.updateGoal(touchPoint);
+		
+		//@todo: get rid of this!
+		if(_battle._currentArmyChoosenId == 0) //green
+			getTargetGreenSprite()->setPosition(touchPoint);
+		else if (_battle._currentArmyChoosenId == 1) //red
+			getTargetRedSprite()->setPosition(touchPoint);
+	}
+	
 }
 
 void GameScene::onTouchMoved(cocos2d::Touch* touch, cocos2d::Event*)
@@ -140,6 +163,7 @@ void GameScene::onMapLoaded(EventCustom * event)
 	if(tiledMap == NULL)
 		return;
 	
+	//tiledMap->setScale(2.5); //@todo: define from device!
 	setTiledMap(tiledMap);
 	addChild(tiledMap);
 	
@@ -152,6 +176,14 @@ void GameScene::onMapLoaded(EventCustom * event)
 	DebugVecLayer * dvl = DebugVecLayer::create(tiledMap->getMapSize(),
 												tiledMap->getTileSize());
 	setDebugVecLayer(dvl);
+	
+	
+	setTargetRedSprite(Sprite::create("target_red.png"));
+	tiledMap->addChild(getTargetRedSprite());
+	
+	setTargetGreenSprite(Sprite::create("target_green.png"));
+	tiledMap->addChild(getTargetGreenSprite());
+	
 	//getTiledMap()->addChild(dvl);
 	
 	/*const float arraySpritePixelsPerTile = 5; //very hard to explain this constant meaning, jft, 25 pixels per tile

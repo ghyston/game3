@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="20" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="mapTileset" tilewidth="32" tileheight="32">
+  <image source="mapTileset.png" width="128" height="128"/>
+  <tile id="0">
+   <properties>
+    <property name="borderX" value="-1"/>
+    <property name="borderY" value="-1"/>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="borderX" value="1"/>
+    <property name="borderY" value="-1"/>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="borderX" value="-1"/>
+    <property name="borderY" value="1"/>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="borderX" value="1"/>
+    <property name="borderY" value="1"/>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="borderX" value="0"/>
+    <property name="borderY" value="1"/>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="borderX" value="1"/>
+    <property name="borderY" value="0"/>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="borderX" value="-1"/>
+    <property name="borderY" value="0"/>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="borderX" value="0"/>
+    <property name="borderY" value="-1"/>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="borderX" value="-1"/>
+    <property name="borderY" value="-1"/>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="borderX" value="1"/>
+    <property name="borderY" value="-1"/>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="borderX" value="-1"/>
+    <property name="borderY" value="1"/>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="borderX" value="1"/>
+    <property name="borderY" value="1"/>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="collidable" value="1"/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="collidable" value="0"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Layer1" width="50" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA82W0Q7DIAhFne3adev2/587l4yEELwFpY0P96VGvAeEmlNKD0W3ordRuRLDEtezF8Vcij6KNgMLeXhWYljizkW7Y7+mFXDQOsqdxz+KKz28iu5/WRg9HLnDt5djBWstHFtA7r0cv1pMwRxIVPtd+Ybug/Qp63xUqygO8jop53APtf713KkzOdA5ck1jGYWD94zsG+mhxedVHJ5a9XJYZ2Q0h6yVNueiZ24LB59Hnv/UaByWeyNZJSfqr6s4tDdXRJ/WOK3/3tZ5xVki+rRXrX2OckYc0QzorRA9rzhjNAN6c53BEZVzLs5A7wRel9E4tHmItLB9xDaCZN6PNLN9X2CCeaCgDwAA
+  </data>
+ </layer>
+</map>

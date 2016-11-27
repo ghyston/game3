@@ -58,6 +58,9 @@ private:
 	
 	CC_SYNTHESIZE_RETAIN(Menu *, _armySwitcher, ArmySwitcher);
 	
+	CC_SYNTHESIZE_RETAIN(Sprite *, _targetRedSprite, TargetGreenSprite);
+	CC_SYNTHESIZE_RETAIN(Sprite *, _targetGreenSprite, TargetRedSprite);
+	
 	const GLubyte * _spriteData;
 	//@todo: jft, remove!
 	/*GLbyte * _tempSpriteData;

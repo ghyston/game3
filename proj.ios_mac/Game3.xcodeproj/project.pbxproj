@@ -61,6 +61,18 @@
 		3FE45BCE1ADC5BB30096C53C /* MoveSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FE45BCB1ADC5BB30096C53C /* MoveSystem.cpp */; };
 		3FE45BD21ADC61FC0096C53C /* EntityFabric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FE45BD01ADC61FC0096C53C /* EntityFabric.cpp */; };
 		3FE45BD31ADC61FC0096C53C /* EntityFabric.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3FE45BD01ADC61FC0096C53C /* EntityFabric.cpp */; };
+		3FEB338E1B3CA2CB00B86012 /* green_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FEB338B1B3CA2CB00B86012 /* green_btn.png */; };
+		3FEB338F1B3CA2CB00B86012 /* green_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FEB338B1B3CA2CB00B86012 /* green_btn.png */; };
+		3FEB33901B3CA2CB00B86012 /* red_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FEB338C1B3CA2CB00B86012 /* red_btn.png */; };
+		3FEB33911B3CA2CB00B86012 /* red_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FEB338C1B3CA2CB00B86012 /* red_btn.png */; };
+		3FEB33921B3CA2CB00B86012 /* target.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FEB338D1B3CA2CB00B86012 /* target.png */; };
+		3FEB33931B3CA2CB00B86012 /* target.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FEB338D1B3CA2CB00B86012 /* target.png */; };
+		3FEB33981B3CAFB100B86012 /* target_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FEB33961B3CAFB100B86012 /* target_green.png */; };
+		3FEB33991B3CAFB100B86012 /* target_green.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FEB33961B3CAFB100B86012 /* target_green.png */; };
+		3FEB339A1B3CAFB100B86012 /* target_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FEB33971B3CAFB100B86012 /* target_red.png */; };
+		3FEB339B1B3CAFB100B86012 /* target_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FEB33971B3CAFB100B86012 /* target_red.png */; };
+		3FEB339D1B3CB2E400B86012 /* third.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3FEB339C1B3CB2E400B86012 /* third.tmx */; };
+		3FEB339E1B3CB2E400B86012 /* third.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 3FEB339C1B3CB2E400B86012 /* third.tmx */; };
 		46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7619C43A67006E1F66 /* CloseNormal.png */; };
 		46880B7C19C43A67006E1F66 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7619C43A67006E1F66 /* CloseNormal.png */; };
 		46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7719C43A67006E1F66 /* CloseSelected.png */; };
@@ -223,6 +235,12 @@
 		3FE45BCC1ADC5BB30096C53C /* MoveSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveSystem.h; sourceTree = "<group>"; };
 		3FE45BD01ADC61FC0096C53C /* EntityFabric.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityFabric.cpp; sourceTree = "<group>"; };
 		3FE45BD11ADC61FC0096C53C /* EntityFabric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityFabric.h; sourceTree = "<group>"; };
+		3FEB338B1B3CA2CB00B86012 /* green_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = green_btn.png; sourceTree = "<group>"; };
+		3FEB338C1B3CA2CB00B86012 /* red_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_btn.png; sourceTree = "<group>"; };
+		3FEB338D1B3CA2CB00B86012 /* target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target.png; sourceTree = "<group>"; };
+		3FEB33961B3CAFB100B86012 /* target_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target_green.png; sourceTree = "<group>"; };
+		3FEB33971B3CAFB100B86012 /* target_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target_red.png; sourceTree = "<group>"; };
+		3FEB339C1B3CB2E400B86012 /* third.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = third.tmx; sourceTree = "<group>"; };
 		46880B7619C43A67006E1F66 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
 		46880B7719C43A67006E1F66 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
 		46880B7A19C43A67006E1F66 /* HelloWorld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HelloWorld.png; sourceTree = "<group>"; };
@@ -485,6 +503,12 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3FEB339C1B3CB2E400B86012 /* third.tmx */,
+				3FEB33961B3CAFB100B86012 /* target_green.png */,
+				3FEB33971B3CAFB100B86012 /* target_red.png */,
+				3FEB338B1B3CA2CB00B86012 /* green_btn.png */,
+				3FEB338C1B3CA2CB00B86012 /* red_btn.png */,
+				3FEB338D1B3CA2CB00B86012 /* target.png */,
 				3F59F6991AF68428009AD13F /* energy_sprite.png */,
 				3F59F68F1AF62D39009AD13F /* mapTileset.png */,
 				3F59F6901AF62D39009AD13F /* second.tmx */,
@@ -614,7 +638,11 @@
 				LastUpgradeCheck = 0500;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
-						DevelopmentTeam = MDDB52YB8L;
+						DevelopmentTeam = AU77L4BHS3;
+					};
+					5087E73D17EB910900C73F5D = {
+						DevelopmentTeam = AU77L4BHS3;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -686,10 +714,13 @@
 			files = (
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				3F59F6911AF62D39009AD13F /* mapTileset.png in Resources */,
+				3FEB339A1B3CAFB100B86012 /* target_red.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
+				3FEB33921B3CA2CB00B86012 /* target.png in Resources */,
 				3F59F69A1AF68428009AD13F /* energy_sprite.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
+				3FEB33901B3CA2CB00B86012 /* red_btn.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
 				3F59F6071AE99530009AD13F /* ship_s.png in Resources */,
 				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
@@ -701,15 +732,18 @@
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
+				3FEB338E1B3CA2CB00B86012 /* green_btn.png in Resources */,
 				50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */,
 				5087E78217EB970100C73F5D /* Icon-144.png in Resources */,
 				3EACC98F19EE6D4300EB3C5E /* res in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
 				3F59F6931AF62D39009AD13F /* second.tmx in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
+				3FEB33981B3CAFB100B86012 /* target_green.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
+				3FEB339D1B3CB2E400B86012 /* third.tmx in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
 				3F59F5FC1AE3C8B6009AD13F /* ship.png in Resources */,
 			);
@@ -719,16 +753,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FEB338F1B3CA2CB00B86012 /* green_btn.png in Resources */,
 				46880B8219C43A67006E1F66 /* HelloWorld.png in Resources */,
+				3FEB339B1B3CAFB100B86012 /* target_red.png in Resources */,
 				503AE0F817EB97AB00D1A890 /* Icon.icns in Resources */,
 				3EACC99019EE6D4300EB3C5E /* res in Resources */,
 				3F59F6081AE99530009AD13F /* ship_s.png in Resources */,
+				3FEB33911B3CA2CB00B86012 /* red_btn.png in Resources */,
 				3F59F69B1AF68428009AD13F /* energy_sprite.png in Resources */,
 				521A8EAA19F11F5000D177D7 /* fonts in Resources */,
 				3F59F6921AF62D39009AD13F /* mapTileset.png in Resources */,
 				46880B7C19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				46880B7E19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				3F59F5FD1AE3C8B6009AD13F /* ship.png in Resources */,
+				3FEB33991B3CAFB100B86012 /* target_green.png in Resources */,
+				3FEB339E1B3CB2E400B86012 /* third.tmx in Resources */,
+				3FEB33931B3CA2CB00B86012 /* target.png in Resources */,
 				3F59F6941AF62D39009AD13F /* second.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -812,6 +852,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Hyston/projects/_tools/Artemis-Cpp",
@@ -833,13 +874,14 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = /Users/Hyston;
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
 				SDKROOT = iphoneos;
+				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
 				VALID_ARCHS = "arm64 armv7";
@@ -852,6 +894,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Hyston/projects/_tools/Artemis-Cpp",
@@ -871,13 +914,14 @@
 					"$(SRCROOT)/../cocos2d/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = /Users/Hyston;
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
 				SDKROOT = iphoneos;
+				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
 				VALID_ARCHS = "arm64 armv7";
@@ -890,7 +934,9 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = AU77L4BHS3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Hyston/projects/_tools/Artemis-Cpp",
@@ -929,7 +975,9 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = AU77L4BHS3;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Hyston/projects/_tools/Artemis-Cpp",
